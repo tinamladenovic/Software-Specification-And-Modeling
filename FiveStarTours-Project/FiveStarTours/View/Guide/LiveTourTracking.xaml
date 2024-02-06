@@ -1,0 +1,31 @@
+﻿<Window x:Class="FiveStarTours.View.Guide.LiveTourTracking"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Guide"
+        mc:Ignorable="d"
+        Title="LiveTourTracking" Height="350" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel>
+            <Label DockPanel.Dock="Top" Content="{Binding Name}" Height="25" Margin="150,0,0,0" ></Label>
+            <Button DockPanel.Dock="Bottom" x:Name="EndTour" Margin="330,10,10,10" Height="25" Content="End" Click="EndTour_Click" > </Button>
+            <ItemsControl x:Name="KeyPoints" DockPanel.Dock="Left" ItemsSource="{Binding KeyPoints}" Width="200">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox x:Name="KeyPoint" Content="{Binding Name}" IsChecked="{Binding Visited, Mode=TwoWay}" Unchecked="CheckBox_Unchecked" Checked="CheckPoint_Checked" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ItemsControl Name="Visitors" DockPanel.Dock="Right" ItemsSource="{Binding Visitors}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <CheckBox x:Name="Visitor" Content="{Binding}" Checked="Visitor_Checked" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DockPanel>
+    </Grid>
+</Window>

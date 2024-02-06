@@ -1,0 +1,98 @@
+﻿<Window x:Class="FiveStarTours.View.Visitor.NotificationsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Visitor"
+        mc:Ignorable="d"
+        Title="NotificationsWindow" Height="600" Width="1200" ResizeMode="NoResize" WindowStyle="SingleBorderWindow"
+         WindowStartupLocation="CenterScreen">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="LightGray" CornerRadius="15 15 15 15" >
+            <Grid DataContext="{Binding LoggedInUser}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1" Width="200" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           TextAlignment="Center" Text="{Binding Path=Username}" FontSize="15" FontWeight="Medium"/>
+                <Button Grid.Row="2" Click="AllToursButton_Click" Width="200" Height="45" Content="ALL TOURS" Background="WhiteSmoke" FontSize="20" FontWeight="Medium"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Button Grid.Row="3" Click="ReservedToursButton_Click" Width="200" Height="45" Content="MY TOURS" Background="WhiteSmoke" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Button Grid.Row="4" Click="GiftCardsButton_Click" Width="200" Height="45" Content="GIFT CARDS" Background="WhiteSmoke" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Button Grid.Row="5"  Width="200" Height="45" Content="MAKE TOUR" Background="WhiteSmoke" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Button Grid.Row="6"  Width="200" Height="45" Content="MAKE COMPLEX TOUR" Background="WhiteSmoke" FontSize="15"
+                        FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Button Grid.Row="7" Width="200" Height="45" Content="NOTIFICATIONS" Background="DarkGray" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="Black" />
+                <Grid Grid.Row="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" 
+                             Text="LANGUAGE" FontSize="12" FontWeight="Medium" Background="WhiteSmoke"/>
+                    <ComboBox Grid.Row="1" Width="200" Height="25" VerticalAlignment="Top" Visibility="Visible"
+                              ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}"/>
+                </Grid>
+                <Grid Grid.Row="9">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" 
+                             Text="BACKGROUND" FontSize="12" FontWeight="Medium" Background="WhiteSmoke"/>
+                    <ComboBox Grid.Row="1" Width="200" Height="25" x:Name="BackgroundComboBox" VerticalAlignment="Top" Visibility="Visible"/>
+                </Grid>
+                <Button Grid.Row="10" Width="200" Height="45" Content="LOG OUT" Background="Red" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="LightGray"
+                        Click="LogOutButton_Click"/>
+
+            </Grid>
+        </Border>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="85"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Grid.Column="1" BorderThickness="6" BorderBrush="LightGray">
+                <Grid Grid.Row="1" Grid.Column="1" Background="WhiteSmoke">
+                    <Label Content="HELLO!" 
+                   VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="23" FontWeight="Medium" Margin="0,94,0,0" />
+                    <Label Content="DID YOU JOIN THE TOUR?" 
+                   VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="23" FontWeight="Medium" Margin="0,140,0,0" />
+                    <Button Click="NoButton_Click" Width="120" Height="45" Content="NO" Background="Red" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderThickness="3" BorderBrush="DarkGray" Margin="230,0,0,94" />
+                    <Button Click="YesButton_Click" Width="120" Height="45" Content="YES" Background="Green" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderThickness="3" BorderBrush="DarkGray" Margin="0,0,230,94" />
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</Window>

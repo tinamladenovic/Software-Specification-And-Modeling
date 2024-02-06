@@ -1,0 +1,45 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.VehicleOnAdress"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns:Model="clr-namespace:FiveStarTours.Model" xmlns:Repository="clr-namespace:FiveStarTours.Repository" 
+        x:Class="FiveStarTours.View.VehicleOnAdress.VehicleOnAdress"
+        mc:Ignorable="d"
+        Title="Vehicle On Adress" Height="600" Width="800">
+    <Grid Background="#FFEBB7F3">
+        <DataGrid ItemsSource="{Binding Drivings}"
+                  SelectedItem="{Binding Path=SelectedDrivings}"
+                  SelectionMode="Single" 
+                  HeadersVisibility="Column"
+                  FontSize="13" 
+                  Margin="0,190,0,137" AutoGenerateColumns="False" Background="#FFE4E3E3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Name, Mode=TwoWay}" Width="150"/>
+                <DataGridCheckBoxColumn x:Name="FastDriveCheckBox" Header="Fast Drive" Binding="{Binding FastDriving, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="100" IsThreeState="True" />
+                <DataGridCheckBoxColumn x:Name="OnAdressCheckBox" Header="On Adress" Binding="{Binding OnAdress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="100" IsThreeState="True" />
+                <DataGridCheckBoxColumn x:Name="IsDelayCheckBox" Header="Delay" Binding="{Binding IsDelay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"  IsThreeState="True"/>
+                <DataGridTextColumn  x:Name="EnterDelayTextBox" Header="Enter Delay" Binding="{Binding EnterDelay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" />
+
+                <DataGridCheckBoxColumn x:Name="DrivingStartsCheckBox" Header="Driving Starts" Binding="{Binding DrivingStarts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" />
+                <DataGridTextColumn  x:Name="EnterStartPriceTextBox" Header="Enter Start Price" Binding="{Binding EnterStartPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label Content="Today Drivings" HorizontalAlignment="Left" Margin="269,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.177,0.285" FontSize="36" FontStyle="Italic"/>
+        <Button x:Name="StartButton" Content="START" HorizontalAlignment="Left" Margin="226,506,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.464,0.477" Height="40" Width="150" Click="StartButton_Click" Background="#FFFFFCBD" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="CancelButton" Content="CANCEL" HorizontalAlignment="Left" Margin="430,506,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="CancelButton_Click" RenderTransformOrigin="0.005,0.66" FontWeight="Bold" Background="#FFFFFCBD" FontSize="14"/>
+        <ComboBox x:Name="SelectDriverComboBox" HorizontalAlignment="Left" Margin="343,103,0,0" VerticalAlignment="Top" Width="269" SelectionChanged="SelectDriverComboBox_SelectionChanged">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFD6D5D5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <Label Content="Select Driver*" HorizontalAlignment="Left" Margin="226,96,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.256,0.532" FontStyle="Italic"/>
+
+    </Grid>
+</Window>

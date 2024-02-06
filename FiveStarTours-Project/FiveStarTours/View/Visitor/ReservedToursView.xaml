@@ -1,0 +1,59 @@
+﻿<Window x:Class="FiveStarTours.View.Visitor.ReservedToursView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Visitor"
+        mc:Ignorable="d"
+        Title="ReservedToursView" Height="600" Width="1200" ResizeMode="NoResize" WindowStyle="SingleBorderWindow"
+         WindowStartupLocation="CenterScreen">
+    <Grid Background="white">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="2" Background="LightGray" CornerRadius="15 15 15 15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="1" Height="45" Width="150" Background="Green" Content="RATE" Click="RateButton_Click"
+                        FontSize="20" FontWeight="Medium" BorderBrush="DarkGray" BorderThickness="3"/>
+                <Button Grid.Row="2" Height="45" Width="150" Background="red" Content="BACK" Click="BackButton_Click"
+                        FontSize="20" FontWeight="Medium" BorderBrush="DarkGray" BorderThickness="3" Margin="25,366,25,33"/>
+            </Grid>
+        </Border>
+        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DataGrid ItemsSource="{Binding ReservedTours}"
+                      SelectedItem="{Binding Path=SelectedReservedTour}"
+                      IsReadOnly="True" SelectionMode="Single"
+                      AutoGenerateColumns="False" Height="459" HeadersVisibility="Column"
+                      FontSize="13">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Reservation Id" Binding="{Binding Id}" Width="100" />
+                    <DataGridTextColumn Header="Members" Binding="{Binding VisitorName}" Width="100"/>
+                    <DataGridTextColumn Header="Tour Id" Binding="{Binding TourId}" Width="100"/>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}" Width="100"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="100"/>
+                    <DataGridTextColumn Header="Members number" Binding="{Binding MembersNumber}" Width="100"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding DateTime ,StringFormat='{}{0:dd.MM.yyyy}'}" Width="100"/>
+                </DataGrid.Columns>
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="FontWeight" Value="Medium"/>
+                        <Setter Property="BorderThickness" Value="2,2,2,2"/>
+                        <Setter Property="BorderBrush" Value="DarkGray"/>
+                        <Setter Property="Height" Value="40"/>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+        </StackPanel>
+
+    </Grid>
+</Window>

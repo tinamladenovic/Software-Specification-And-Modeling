@@ -1,0 +1,48 @@
+﻿<Window x:Class="FiveStarTours.View.Guide.Reviews"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Guide"
+        mc:Ignorable="d"
+        Title="Reviews" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel>
+            <ToolBar DockPanel.Dock="Top" Height="30" Width="797">
+                <Button x:Name="Report" Content="Report" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Report_Click"/>
+                <ComboBox x:Name="Tours" Width="150" Margin="580,0,0,0" SelectionChanged="Tours_SelectionChanged"></ComboBox>
+            </ToolBar>
+            <StackPanel Width="776">
+                <DataGrid x:Name="DataGridReviews" AutoGenerateColumns="False" Width="776" Height="383" IsReadOnly="True"
+                        ItemsSource="{Binding Path=ReviewsCollection, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedReview, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single">
+                    <DataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="White"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Reported}" Value="True">
+                                    <Setter Property="Background" Value="Red"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Visitor ID" Binding="{Binding UserId}"  Width="*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Knowlegde" Binding="{Binding GuidesKnowledge}"  Width="1.3*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Speaking" Binding="{Binding GuidesSpeaking}"  Width="1.1*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Interest" Binding="{Binding LevelOfInterest}" Width="0.9*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Review" Binding="{Binding Review}" Width="7*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Key point" Binding="{Binding KeyPoint.Name}" Width="1.1*">
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </DockPanel>
+
+    </Grid>
+</Window>

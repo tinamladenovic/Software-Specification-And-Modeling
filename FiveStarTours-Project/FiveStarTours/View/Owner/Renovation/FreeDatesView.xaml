@@ -1,0 +1,73 @@
+﻿<Window x:Class="FiveStarTours.View.Owner.Renovation.FreeDatesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Owner"
+        mc:Ignorable="d"
+        Title="Dates" Height="736" Width="414" Background="Transparent"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Border Background="Pink" 
+            CornerRadius="20 20 20 20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <!-- TITLE -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Button Click="GoBackButton_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="50" Height="50">
+                    <Image Source="/View/Owner/ImagesOwner/arrow.png" Height="40" Width="40" Margin="10,0,0,0"/>
+                </Button>
+                <Label Content="Choose a date"  FontSize="20" Height="40" Width="287" Margin="40,0,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Avalible dates for:" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Center" FontSize="16" Width="243"/>
+                <Border BorderBrush="Black"  Grid.Column="1" BorderThickness="2" Width="230" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBox  Text="{Binding Path=AccommodationName,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
+                </Border>
+            </Grid>
+
+            <!-- FREE DATES DATAGRID -->
+            <DataGrid Grid.Row="2" x:Name="MyDisplay1" AutoGenerateColumns="False" ItemsSource="{Binding FreeDates }" SelectedItem="{Binding SelectedDate}" GridLinesVisibility="All"
+                               
+                                IsReadOnly="True" SelectionMode="Single" FontSize="18"  >
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="START DATE " Binding="{Binding Path=Start, StringFormat='{}{0:dd.MM.yyyy}'}" Width="130"/>
+                    <DataGridTextColumn Header="END DATE" Binding="{Binding Path=End, StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"/>
+
+
+
+                </DataGrid.Columns>
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="Gainsboro"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="BorderThickness" Value="2,2,2,2"/>
+                        <Setter Property="BorderBrush" Value="LightBlue"/>
+
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+
+
+
+            <!-- SUBMIT -->
+            <Button Grid.Row="7" Content="Choose" Click="Choose_Click"  Margin="20,20,0,0" Height="35" Width="100"
+                    Background="#FFFB0707" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18"/>
+
+
+        </Grid>
+    </Border>
+</Window>

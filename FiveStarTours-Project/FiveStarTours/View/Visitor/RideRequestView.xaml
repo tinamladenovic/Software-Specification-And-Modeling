@@ -1,0 +1,163 @@
+﻿<Window x:Class="FiveStarTours.View.Visitor.RideRequestView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Visitor"
+        mc:Ignorable="d"
+        Title="RideRequestView" Height="600" Width="1200">
+    <Grid Background="white">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0"  CornerRadius="15 15 15 15" >
+            <Grid DataContext="{Binding LoggedInUser}" >
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#0077CC" Offset="0"/>
+                        <GradientStop Color="#004C99" Offset="0.4"/>
+                        <GradientStop Color="#002D59" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1" Width="200" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           TextAlignment="Center" Text="{Binding Path=Username}" FontSize="15" FontWeight="Medium"/>
+                <Button Grid.Row="2" Width="200" Height="45" Content="ALL TOURS" Background="WhiteSmoke" FontSize="20" FontWeight="Medium"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" Click="AllToursButton_Click" />
+                <Button Grid.Row="3" Click="ReservedToursButton_Click" Width="200" Height="45" Content="MY TOURS" Background="WhiteSmoke" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Button Grid.Row="4" Click="GiftCardsButton_Click" Width="200" Height="45" Content="GIFT CARDS" Background="WhiteSmoke" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Button Grid.Row="5" Click="ShowTourButton_Click" Width="200" Height="45" Content="MAKE TOUR" Background="WhiteSmoke" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="3" BorderBrush="DarkGray" Margin="0,0,0,4" />
+                <Button Grid.Row="6"  Width="200" Height="45" Content="RIDE REQUEST" Background="DarkGray" FontSize="20"
+                        FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="black" Click="Button_Click" />
+                <Button Grid.Row="7" Click="NotificationsButton_Click" Width="200" Height="45" Content="NOTIFICATIONS" Background="WhiteSmoke" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="DarkGray" />
+                <Grid Grid.Row="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" 
+                             Text="LANGUAGE" FontSize="12" FontWeight="Medium" Background="WhiteSmoke"/>
+                    <ComboBox Grid.Row="1" Width="200" Height="25" VerticalAlignment="Top" Visibility="Visible"
+                              ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged"/>
+                </Grid>
+                <Grid Grid.Row="9">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" 
+                             Text="BACKGROUND" FontSize="12" FontWeight="Medium" Background="WhiteSmoke"/>
+                    <ComboBox Grid.Row="1" Width="200" Height="25" x:Name="BackgroundComboBox" VerticalAlignment="Top" Visibility="Visible" SelectionChanged="BackgroundComboBox_SelectionChanged"/>
+                </Grid>
+                <Button Grid.Row="10" Width="200" Height="45" Content="LOG OUT" Background="Red" FontSize="20"
+                         FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="3" BorderBrush="LightGray"
+                        Click="LogOutButton_Click"/>
+            </Grid>
+        </Border>
+        <Grid Grid.Column="1" Width="800">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" Content="RIDE REQUEST" FontFamily="Segoe UI" FontSize="35" HorizontalAlignment="Center" FontWeight="Medium"
+                   Foreground="#FF3399CC" Margin="13"/>
+            <ScrollViewer Grid.Row="1">
+                <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="3">
+                    <Grid Background="WhiteSmoke">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="250"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="LOCATION:" FontFamily="Miriam" FontSize="20" FontWeight="Medium"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="DESCRIPTION:" FontFamily="Miriam" FontSize="20" FontWeight="Medium"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Grid.Row="2" Grid.Column="0" Content="LANGUAGE:" FontFamily="Miriam" FontSize="20" FontWeight="Medium"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Grid.Row="3" Grid.Column="0" Content="NUMBER OF GUESTS:" FontFamily="Miriam" FontSize="20" FontWeight="Medium"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Grid.Row="4" Grid.Column="0" Content="DATE AND TIME:" FontFamily="Miriam" FontSize="20" FontWeight="Medium"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="183"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Content="STARTING STATE"/>
+                            <Label Grid.Row="1" Grid.Column="0" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Content="STARTING CITY"/>
+                            <Label Grid.Row="2" Grid.Column="0" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Content="STARTING STREET"/>
+                            <ComboBox x:Name="startingStateComboBox" SelectionChanged="startingStateComboBox_SelectionChanged" HorizontalAlignment="Right" Grid.Row="0" VerticalAlignment="Center" Width="320" Grid.Column="1" Height="25"/>
+                            <ComboBox x:Name="startingCityComboBox" SelectionChanged="startingCityComboBox_SelectionChanged" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Width="320" Grid.Column="1" Height="25"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=StartingStreet, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="27" Width="320" HorizontalAlignment="Right"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="183"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Content="DESTINATION STATE"/>
+                            <Label Grid.Row="1" Grid.Column="0" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Content="DESTINATION CITY"/>
+                            <Label Grid.Row="2" Grid.Column="0" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Content="STARTING STREET"/>
+                            <ComboBox x:Name="destinationStateComboBox" SelectionChanged="destinationStateComboBox_SelectionChanged" HorizontalAlignment="Right" Grid.Row="0" VerticalAlignment="Center" Width="320" Grid.Column="1" Height="25"/>
+                            <ComboBox x:Name="destinationCityComboBox" SelectionChanged="destinationCityComboBox_SelectionChanged" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Width="320"  Grid.Column="1" Height="25"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=DestinationStreet, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="27" Width="320" HorizontalAlignment="Right"/>
+                        </Grid>
+
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Lang, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="53"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=PassengerNumber, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="53" />
+
+                        <Grid Grid.Row="4" Grid.Column="1" Margin="0,43,0,0" Grid.RowSpan="2">
+                            <Calendar x:Name="Calendar" SelectionMode="SingleDate" SelectedDatesChanged="Calendar_SelectedDatesChanged" HorizontalAlignment="Left" Width="263" Margin="264,10,0,105" />
+                            <Grid HorizontalAlignment="Left" Width="164">
+                                <TextBox x:Name="datesTextBox" Margin="2,35,-127,139"/>
+                                <TextBox x:Name="timeTextBox" HorizontalAlignment="Right" Margin="0,9,-127,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Height="21" Text="{Binding Path=SelectedTime, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Button x:Name="AddDateTime" Content="ADD" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="116" Click="AddButton_Click" Height="25"/>
+                            </Grid>
+                        </Grid>
+
+                        <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="45" Background="#0077CC"
+                            Content="SEND" FontFamily="Miriam" FontSize="20" FontWeight="Medium" BorderBrush="LightGray" BorderThickness="3" Click="SendButton_Click" />
+                    </Grid>
+                </Border>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

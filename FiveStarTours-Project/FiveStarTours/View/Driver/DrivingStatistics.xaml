@@ -1,0 +1,60 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="FiveStarTours.View.Driver.DrivingStatistics"
+        mc:Ignorable="d"
+        Title="Driving Statistics" Height="750" Width="1300">
+    <Grid>
+        <Label Content="Driving Statistics" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <DataGrid x:Name="DataGridStatistics" ItemsSource="{Binding DrivingStatisticsData}"
+                  IsEnabled="False"
+                  
+                  HeadersVisibility="Column"
+                  FontSize="13" 
+                  Margin="369,123,360,440" 
+                  AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="DataGridTextColumnYear" Header="Year" IsReadOnly="True" Binding="{Binding DrivingYear, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="Driving Number" IsReadOnly="True" Binding="{Binding DrivingNumber, Mode=TwoWay}" Width="150"/>
+                <DataGridTextColumn Header="Driving Duration" IsReadOnly="True" Binding="{Binding DrivingDuration, Mode=TwoWay}" Width="150"/>
+                <DataGridTextColumn Header="Driving Price" IsReadOnly="True" Binding="{Binding DrivingPrice, Mode=TwoWay}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Driving Statistics By Years:" HorizontalAlignment="Center" Margin="0,73,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Driving Statistics By Months:" HorizontalAlignment="Left" Margin="550,322,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="2.394,0.634"/>
+        <DataGrid x:Name="DataGridStatistics2" ItemsSource="{Binding DrivingStatisticsData2}"
+                  SelectedItem="Single" 
+                  HeadersVisibility="Column"
+                  FontSize="13" 
+                  Margin="0,441,0,81">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Year" IsReadOnly="True" Binding="{Binding DrivingYear2, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="NDP" IsReadOnly="True" Binding="{Binding DrivingNDP, Mode=TwoWay}" Width="100"/>
+                
+                <DataGridTextColumn Header="January" IsReadOnly="True" Binding="{Binding January, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="February" IsReadOnly="True" Binding="{Binding February, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="March" IsReadOnly="True" Binding="{Binding March, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="April" IsReadOnly="True" Binding="{Binding April, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="May" IsReadOnly="True" Binding="{Binding May, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="June" IsReadOnly="True" Binding="{Binding June, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="July" IsReadOnly="True" Binding="{Binding July, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="August" IsReadOnly="True" Binding="{Binding August, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="September" IsReadOnly="True" Binding="{Binding September, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="October" IsReadOnly="True" Binding="{Binding October, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="November" IsReadOnly="True" Binding="{Binding November, Mode=TwoWay}" Width="100"/>
+                <DataGridTextColumn Header="December" IsReadOnly="True" Binding="{Binding December, Mode=TwoWay}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Choose Year:" HorizontalAlignment="Left" Margin="10,390,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.471,2.392"/>
+        <ComboBox x:Name="ChooseYearComboBox" HorizontalAlignment="Left" Margin="118,393,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.491,-0.535" Height="22">
+            <ComboBoxItem Content="2020"/>
+            <ComboBoxItem Content="2021"/>
+            <ComboBoxItem Content="2022"/>
+            <ComboBoxItem Content="2023"/>
+        </ComboBox>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="274,393,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.095,2.798" Width="120" Height="22" Click="SearchButton_Click"/>
+    </Grid>
+</Window>

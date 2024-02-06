@@ -1,0 +1,30 @@
+﻿<Window x:Class="FiveStarTours.View.VehicleRegistration.VehicleRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.VehicleRegistration"
+        mc:Ignorable="d"
+        Title="Vehicle Registration" Height="500" Width="550">
+    <Grid RenderTransformOrigin="0.811,0.294" Margin="-52,0,52,0">
+        <Label Content="Location*" HorizontalAlignment="Left" Margin="161,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.864,-1.338" Height="40" Width="81" FontSize="16"/>
+        <Label Content="Max Person Number*" HorizontalAlignment="Left" Margin="78,209,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Language*" HorizontalAlignment="Left" Margin="154,264,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-0.017,0.533"/>
+        <Label Content="Images*" HorizontalAlignment="Left" Margin="172,313,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.18,-1.697"/>
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="176,427,0,0" VerticalAlignment="Top" Height="22" Width="120" RenderTransformOrigin="0.96,-0.324" Click="SaveButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="335,427,0,0" VerticalAlignment="Top" Width="129" Height="22" RenderTransformOrigin="0.64,3.309" Click="CancelButton_Click"/>
+        <ComboBox x:Name="stateComboBox" HorizontalAlignment="Left" Margin="258,167,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="StateCombobox_SelectionChanged" Height="22"/>
+        <ComboBox x:Name="cityComboBox" HorizontalAlignment="Left" Margin="404,167,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CityCombobox_SelectionChanged" Height="22"/>
+        <Label Content="State*" HorizontalAlignment="Left" Margin="254,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.222,-0.363"/>
+        <Label Content="City*" HorizontalAlignment="Left" Margin="402,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.038,-0.689"/>
+        <TextBox HorizontalAlignment="Left" Margin="258,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=MaxPersonNum, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox HorizontalAlignment="Left" Margin="258,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=Languages, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left" Margin="258,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=ImageUrls, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left" Margin="254,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=DriverName, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Content="Name*" HorizontalAlignment="Left" Margin="184,95,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Driver Registration" HorizontalAlignment="Left" Margin="224,25,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Margin="258,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=FastDriveNum, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Fast Drive Number*" HorizontalAlignment="Left" Margin="91,366,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+    </Grid>
+</Window>
