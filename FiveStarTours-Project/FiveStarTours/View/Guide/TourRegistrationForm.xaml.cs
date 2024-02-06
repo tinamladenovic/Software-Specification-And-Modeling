@@ -27,6 +27,22 @@ namespace FiveStarTours.View
             (DataContext as TourRegistrationFormViewModel).RequestClose += CloseWindow;
         }
 
+        public TourRegistrationForm(User user, Location location)
+        {
+            InitializeComponent();
+            viewModel = new TourRegistrationFormViewModel(user, location);
+            DataContext = viewModel;
+            (DataContext as TourRegistrationFormViewModel).RequestClose += CloseWindow;
+        }
+
+        public TourRegistrationForm(User user, Language language)
+        {
+            InitializeComponent();
+            viewModel = new TourRegistrationFormViewModel(user, language);
+            DataContext = viewModel;
+            (DataContext as TourRegistrationFormViewModel).RequestClose += CloseWindow;
+        }
+
         private void CloseWindow(object sender, EventArgs e)
         {
             Close();

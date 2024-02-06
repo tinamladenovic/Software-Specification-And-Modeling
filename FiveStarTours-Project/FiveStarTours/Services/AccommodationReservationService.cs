@@ -64,7 +64,7 @@ namespace FiveStarTours.Services
 
 
         //SHOW GUEST REVIEWS TO OWNER
-        public List<AccommodationReservation> GetRatesForOwner()
+        public List<AccommodationReservation> GetRatesForGuest()
         {
             return _accommodationReservationRepository.GetRatesForOwner();
         }
@@ -128,6 +128,19 @@ namespace FiveStarTours.Services
             _accommodationReservationRepository.UserCancelsReservation(accommodationReservation);
         }
 
+        public int CountReservations()
+        {
+            return _accommodationReservationRepository.CountReservations();
+
+        }
+        public int CountReservationsInLastYear()
+        {
+            return _accommodationReservationRepository.CountReservationsInLastYear();
+        }
+        public int UpdateBonusPoints(int reservationCount, int currentPoints) 
+        {
+            return _accommodationReservationRepository.UpdateBonusPoints( reservationCount,  currentPoints);
+        }
 
 
     }

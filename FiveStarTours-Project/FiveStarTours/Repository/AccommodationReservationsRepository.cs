@@ -21,7 +21,7 @@ namespace FiveStarTours.Repository
 
         private static AccommodationReservationsRepository instance = null;
         private AccommodationRatingRepository _ratingRepository;
-        //private RecommodationRepository _recommodationRepository;
+        private RecommodationRepository _recommodationRepository;
         private AccommodationsRepository _accommodationsRepository;
         private CancelationNotificationRepository _cancelationNotificationRepository;
         private UserRepository _userRepository;
@@ -32,7 +32,7 @@ namespace FiveStarTours.Repository
             _reservations = _serializer.FromCSV(FilePath);
             _ratingRepository = AccommodationRatingRepository.GetInstace();
             _accommodationsRepository = new AccommodationsRepository();
-            //_recommodationRepository = RecommodationRepository.GetInstace();
+            _recommodationRepository=RecommodationRepository.GetInstace();
             _cancelationNotificationRepository = new CancelationNotificationRepository();
             _userRepository = new UserRepository();
         }
@@ -301,10 +301,10 @@ namespace FiveStarTours.Repository
         }
         public int CountReservationsInLastYear()
         {
-            DateTime lastYear = DateTime.Now.AddYears(-1);
-            DateTime now = DateTime.Now;
-            return GetAll().Where(r => r.StartDate > lastYear && r.StartDate < now).Count();
-
+                DateTime lastYear = DateTime.Now.AddYears(-1);
+                DateTime now = DateTime.Now;
+                return GetAll().Where(r => r.StartDate > lastYear && r.StartDate < now).Count();
+            
         }
         public int UpdateBonusPoints(int reservationCount, int currentPoints)
         {
@@ -317,8 +317,6 @@ namespace FiveStarTours.Repository
                 return currentPoints;
             }
         }
-
- 
 
 
     }

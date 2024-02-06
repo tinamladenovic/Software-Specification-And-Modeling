@@ -45,10 +45,5 @@ namespace FiveStarTours.Repository
             }
             return _languages.Max(l => l.Id) + 1;
         }
-        public Language GetById(int id)
-        {
-            return _languages.FirstOrDefault(l => l.Id == id);
-        }
-        
     }
 }

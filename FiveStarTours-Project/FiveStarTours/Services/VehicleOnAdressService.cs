@@ -30,5 +30,15 @@ namespace FiveStarTours.Services
         {
             return _vehicleOnAdressRepository.NextId();
         }
+
+        public List<OnAdress> GetAllFastDrive()
+        {
+            return _vehicleOnAdressRepository.GetAllFastDrive();
+        }
+
+        public int FastDriveCount()
+        {
+            return _vehicleOnAdressRepository.FastDriveCount();
+        }
     }
 }

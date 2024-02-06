@@ -10,7 +10,7 @@ using FiveStarTours.ViewModel.Command;
 
 namespace FiveStarTours.ViewModel
 {
-    public class TourRegistrationFormViewModel : INotifyPropertyChanged
+    public class TourRegistrationFormViewModel : FiveStarTours.ViewModel.BindableBase.BindableBase
     {
         public event EventHandler RequestClose;
         public ICommand AddDateCommand { get; }
@@ -40,8 +40,7 @@ namespace FiveStarTours.ViewModel
             {
                 if (value != _tourName)
                 {
-                    _tourName = value;
-                    OnPropertyChanged();
+                    SetProperty(ref _tourName, value);
                 }
             }
         }
@@ -54,8 +53,7 @@ namespace FiveStarTours.ViewModel
             {
                 if (value != _description)
                 {
-                    _description = value;
-                    OnPropertyChanged();
+                    SetProperty(ref _description, value);
                 }
             }
         }
@@ -68,8 +66,7 @@ namespace FiveStarTours.ViewModel
             {
                 if (value != _languages)
                 {
-                    _languages = value;
-                    OnPropertyChanged();
+                    SetProperty(ref _languages, value);
                 }
             }
         }
@@ -83,8 +80,7 @@ namespace FiveStarTours.ViewModel
             {
                 if (value != _maxGuests)
                 {
-                    _maxGuests = value;
-                    OnPropertyChanged();
+                    SetProperty(ref _maxGuests, value);
                 }
             }
         }
@@ -98,8 +94,7 @@ namespace FiveStarTours.ViewModel
             {
                 if (value != _keyPoints)
                 {
-                    _keyPoints = value;
-                    OnPropertyChanged();
+                    SetProperty(ref _keyPoints, value);
                 }
             }
         }
@@ -113,8 +108,7 @@ namespace FiveStarTours.ViewModel
             {
                 if (value != _duration)
                 {
-                    _duration = value;
-                    OnPropertyChanged();
+                    SetProperty(ref _duration, value);
                 }
             }
         }
@@ -127,8 +121,7 @@ namespace FiveStarTours.ViewModel
             {
                 if (value != _imageUrls)
                 {
-                    _imageUrls = value;
-                    OnPropertyChanged();
+                    SetProperty(ref _imageUrls, value); 
                 }
             }
         }
@@ -153,8 +146,7 @@ namespace FiveStarTours.ViewModel
             get => _selectedCity;
             set
             {
-                _selectedCity = value;
-                OnPropertyChanged(nameof(SelectedCity));
+                SetProperty(ref _selectedCity, value);
             }
         }
 
@@ -199,7 +191,7 @@ namespace FiveStarTours.ViewModel
                 if (value != _selectedTime)
                 {
                     _selectedTime = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(SelectedTime));
                 }
             }
         }
@@ -213,6 +205,18 @@ namespace FiveStarTours.ViewModel
                 dateTimeCollection = value;
                 OnPropertyChanged(nameof(DateTimeCollection));
             }
+        }
+
+        private bool _isLanguageEnabled;
+        public bool IsLanguageEnabled
+        {
+            get { return _isLanguageEnabled; }
+        }
+
+        private bool _isLocationEnabled;
+        public bool IsLocationEnabled
+        {
+            get { return _isLocationEnabled; }
         }
 
         private void AddDateTime()
@@ -232,6 +236,8 @@ namespace FiveStarTours.ViewModel
 
             LoggedInUser = user;
             SelectedTime = "12:00:00";
+            _isLocationEnabled = true;
+            _isLanguageEnabled = true;
 
             AddDateCommand = new RelayCommand(AddDateTime);
             CloseWindowCommand = new RelayCommand(CloseWindow);
@@ -241,6 +247,53 @@ namespace FiveStarTours.ViewModel
 
             States = new ObservableCollection<string>(_locationsRepository.GetAllStates());
             Cities = new ObservableCollection<string>();
+            DateTimeCollection = new ObservableCollection<string>();
+        }
+
+        public TourRegistrationFormViewModel(User user, Language language)
+        {
+            _toursRepository = new ToursService();
+            _languagesRepository = new LanguagesService();
+            _locationsRepository = new LocationsService();
+            _keyPointsRepository = new KeyPointsService();
+
+            LoggedInUser = user;
+            SelectedTime = "12:00:00";
+            Languages = language.Name;
+            _isLanguageEnabled = false;
+            _isLocationEnabled = true;
+
+            AddDateCommand = new RelayCommand(AddDateTime);
+            CloseWindowCommand = new RelayCommand(CloseWindow);
+            SaveCommand = new RelayCommand(Save);
+
+            // Adding state and city trough combobox:
+
+            States = new ObservableCollection<string>(_locationsRepository.GetAllStates());
+            Cities = new ObservableCollection<string>();
+            DateTimeCollection = new ObservableCollection<string>();
+        }
+
+        public TourRegistrationFormViewModel(User user, Location location)
+        {
+            _toursRepository = new ToursService();
+            _languagesRepository = new LanguagesService();
+            _locationsRepository = new LocationsService();
+            _keyPointsRepository = new KeyPointsService();
+
+            LoggedInUser = user;
+            SelectedTime = "12:00:00";
+            SelectedState = location.State; 
+            SelectedCity = location.City;
+            _isLocationEnabled = false;
+            _isLanguageEnabled = true;
+
+            AddDateCommand = new RelayCommand(AddDateTime);
+            CloseWindowCommand = new RelayCommand(CloseWindow);
+            SaveCommand = new RelayCommand(Save);
+
+            // Adding state and city trough combobox:
+            States = new ObservableCollection<string>(_locationsRepository.GetAllStates());
             DateTimeCollection = new ObservableCollection<string>();
         }
 
@@ -349,12 +402,6 @@ namespace FiveStarTours.ViewModel
             }
 
             return result;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

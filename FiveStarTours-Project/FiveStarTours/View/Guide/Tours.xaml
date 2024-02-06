@@ -9,15 +9,14 @@
     <Grid>
         <DockPanel>
             <ToolBar DockPanel.Dock="Top" Height="30" Width="797">
-                <Button x:Name="New"  Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Click="NewButton_Click"/>
-                <Button x:Name ="StartTour"  Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Click="StartTourButton_CLick"/>
-                <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CancelTour_Click"/>
-                <Button x:Name="Statistic" Content="Statistic" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Statistic_Click"/>
-                <Button x:Name="Reviews" Content="Reviews" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Reviews_Click"/>
-                <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Close_Click"/>
-                <DatePicker x:Name="ToursDate" HorizontalAlignment="Center" Height="23" Width="114" Margin="420,0,0,0" SelectedDateChanged="ToursDate_SelectedDateChanged"/>
-                
-
+                <Button x:Name="New"  Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding NewTourCommand}"/>
+                <Button x:Name ="StartTour"  Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding StartTourCommand}"/>
+                <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding CancelTourCommand}"/>
+                <Button x:Name="Statistic" Content="Statistic" HorizontalAlignment="Left" VerticalAlignment="Top"  Command="{Binding ShowStatisticCommand}"/>
+                <Button x:Name="Reviews" Content="Reviews" HorizontalAlignment="Left" VerticalAlignment="Top"  Command="{Binding ShowReviewsCommand}"/>
+                <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding CloseCommand}"/>
+                <Button x:Name="Requests" Content="Requests" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding ShowRequestsCommand}"/>
+                <DatePicker x:Name="ToursDate" HorizontalAlignment="Center" Height="23" Width="114" Margin="350,0,0,0" SelectedDate="{Binding SelectedDate}"/>
             </ToolBar>
             <StackPanel Width="776">
                 <DataGrid x:Name="DataGridTours" AutoGenerateColumns="False" Width="776" Height="383" IsReadOnly="True"

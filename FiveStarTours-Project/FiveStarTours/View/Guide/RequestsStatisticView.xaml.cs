@@ -11,25 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using FiveStarTours.View;
+using FiveStarTours.Model;
+using FiveStarTours.ViewModel.Guide;
 
-
-namespace FiveStarTours.View.Traveler
+namespace FiveStarTours.View.Guide
 {
     /// <summary>
-    /// Interaction logic for TravelerMain.xaml
+    /// Interaction logic for RequestsStatisticView.xaml
     /// </summary>
-    public partial class TravelerMain : Window
+    public partial class RequestsStatisticView : Window
     {
-        public TravelerMain()
+        public RequestsStatisticView(User user)
         {
             InitializeComponent();
-        }
-
-        private void Open(object sender, RoutedEventArgs e)
-        {
-            TravelerViewandSearch tvs = new TravelerViewandSearch();
-            tvs.Show();
+            DataContext = new RequestsStatisticVIewModel(user);
         }
     }
 }

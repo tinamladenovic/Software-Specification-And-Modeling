@@ -10,8 +10,8 @@ namespace FiveStarTours.Model
 {
     public class Location : FiveStarTours.Serializer.ISerializable
     {
-        //public string selectedState;
-        //public string selectedCity;
+        public string selectedState;
+        public string selectedCity;
 
         public int Id { get; set; }
         public string State { get; set; }
@@ -22,8 +22,8 @@ namespace FiveStarTours.Model
         public Location(string selectedState, string selectedCity)
         {
             
-            this.State = selectedState;
-            this.City = selectedCity;
+            this.selectedState = selectedState;
+            this.selectedCity = selectedCity;
         }
 
         public string[] ToCSV()
@@ -31,8 +31,8 @@ namespace FiveStarTours.Model
             string[] csvValues =
             {
                 Id.ToString(),
-                State,
-                City
+                selectedState,
+                selectedCity
             };
             return csvValues;
         }

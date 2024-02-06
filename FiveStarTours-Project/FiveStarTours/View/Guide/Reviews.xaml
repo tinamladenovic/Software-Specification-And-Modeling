@@ -9,8 +9,8 @@
     <Grid>
         <DockPanel>
             <ToolBar DockPanel.Dock="Top" Height="30" Width="797">
-                <Button x:Name="Report" Content="Report" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Report_Click"/>
-                <ComboBox x:Name="Tours" Width="150" Margin="580,0,0,0" SelectionChanged="Tours_SelectionChanged"></ComboBox>
+                <Button x:Name="Report" Content="Report" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <ComboBox x:Name="Tours" Width="150" Margin="580,0,0,0" ItemsSource="{Binding EndedToursCollection}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedTour}"></ComboBox>
             </ToolBar>
             <StackPanel Width="776">
                 <DataGrid x:Name="DataGridReviews" AutoGenerateColumns="False" Width="776" Height="383" IsReadOnly="True"
@@ -43,6 +43,5 @@
                 </DataGrid>
             </StackPanel>
         </DockPanel>
-
     </Grid>
 </Window>

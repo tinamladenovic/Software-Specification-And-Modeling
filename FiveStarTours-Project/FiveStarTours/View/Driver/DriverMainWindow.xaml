@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveStarTours.View"
         mc:Ignorable="d"
-        Title="DriverMainWindow" Height="450" Width="800">
+        Title="DriverMainWindow" Height="450" Width="850">
     <Grid>
         <Button Content="Vehicle Registration" 
                 HorizontalAlignment="Left" 
                 Margin="60, 60, 0, 0" 
                 VerticalAlignment="Top" 
                 Height="50" Width="200" 
-                Click="VehicleRegistrationButton_Click"/>
-        <Button x:Name="VehicleOnAdressButton" Content="Vehicle On Adress" HorizontalAlignment="Left" Margin="60,140,0,0" VerticalAlignment="Top" Height="50" Width="200" Click="VehicleOnAdressButton_Click"/>
-        <Button x:Name="DrivingStatisticsButton" Content="Driving Statistics" HorizontalAlignment="Left" Margin="60,293,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="DrivingStatisticsButton_Click"/>
-        <Button x:Name="TaximeterButton" Content="Taximeter" HorizontalAlignment="Left" Margin="60,217,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="TaximeterButton_Click"/>
-        <Button x:Name="FastReservationDrivingButton" Content="Fast Reservation Driving" HorizontalAlignment="Left" Margin="326,60,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="FastReservationDrivingButton_Click"/>
-        <Button x:Name="SuperDriverButton" Content="Super Driver" HorizontalAlignment="Left" Margin="326,140,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="SuperDriverButton_Click"/>
+                Click="VehicleRegistrationButton_Click" FontStyle="Italic" FontSize="16"/>
+        <Button x:Name="VehicleOnAdressButton" Content="Vehicle On Adress" HorizontalAlignment="Left" Margin="60,140,0,0" VerticalAlignment="Top" Height="50" Width="200" Click="VehicleOnAdressButton_Click" FontStyle="Italic" FontSize="16"/>
+        <Button x:Name="DrivingStatisticsButton" Content="Driving Statistics" HorizontalAlignment="Left" Margin="60,293,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="DrivingStatisticsButton_Click" FontSize="16" FontStyle="Italic"/>
+        <Button x:Name="TaximeterButton" Content="Taximeter" HorizontalAlignment="Left" Margin="60,217,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="TaximeterButton_Click" FontStyle="Italic" FontSize="16"/>
+        <Button x:Name="FastReservationDrivingButton" Content="Fast Reservation Driving" HorizontalAlignment="Left" Margin="326,60,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="FastReservationDrivingButton_Click" FontStyle="Italic" FontSize="16"/>
+        <Button x:Name="SuperDriverButton" Content="Super Driver" HorizontalAlignment="Left" Margin="326,140,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="SuperDriverButton_Click" FontSize="16" FontStyle="Italic"/>
+        <Button x:Name="AnnualLeaveButton" Content="Annual Leave" HorizontalAlignment="Left" Margin="326,217,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="16" FontStyle="Italic" Click="AnnualLeaveButton_Click"/>
+        <Button x:Name="SubstituteDriverButton" Content="Substitute Driver" HorizontalAlignment="Left" Margin="326,293,0,0" VerticalAlignment="Top" Width="200" Height="50" FontStyle="Italic" FontSize="16" Click="SubstituteDriverButton_Click"/>
+        <Button x:Name="VehicleLocationsButton" Content="Vehicle Locations" HorizontalAlignment="Left" Margin="584,60,0,0" VerticalAlignment="Top" Width="200" Height="50" FontStyle="Italic" FontSize="16" Click="VehicleLocationsButton_Click"/>
 
     </Grid>
 </Window>

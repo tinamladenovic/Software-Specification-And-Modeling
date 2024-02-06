@@ -9,56 +9,66 @@
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
   </PropertyGroup>
 
-  <ItemGroup>
-	  <Compile Remove="Resources\Images\**" />
-	  <EmbeddedResource Remove="Resources\Images\**" />
-	  <None Remove="Resources\Images\**" />
-	  <Page Remove="Resources\Images\**" />
-	  <None Remove="View\Owner\ImagesOwner\actionBar.png" />
-	  <None Remove="View\Owner\ImagesOwner\arrow.png" />
-	  <None Remove="View\Owner\ImagesOwner\avatar.png" />
-	  <None Remove="View\Owner\ImagesOwner\download.png" />
-	  <None Remove="View\Owner\ImagesOwner\help.png" />
-	  <None Remove="View\Owner\ImagesOwner\logo.png" />
-	  <None Remove="View\Owner\ImagesOwner\notification.png" />
-	  <None Remove="View\Owner\ImagesOwner\pdf.png" />
-	  <None Remove="View\Owner\ImagesOwner\rightArrow.png" />
-	  <Content Include="View\Owner\ImagesOwner\actionBar.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="View\Owner\ImagesOwner\arrow.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="View\Owner\ImagesOwner\avatar.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="View\Owner\ImagesOwner\download.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="View\Owner\ImagesOwner\help.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="View\Owner\ImagesOwner\logo.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="View\Owner\ImagesOwner\notification.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="View\Owner\ImagesOwner\rightArrow.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-    <Folder Include="Resources\Images\" />
-	  <Resource Include="Resources\Images\unavailable-image.jpg">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Resource>
+	<ItemGroup>
+		<Compile Remove="Resources\Images\**" />
+		<EmbeddedResource Remove="Resources\Images\**" />
+		<None Remove="Resources\Images\**" />
+		<Page Remove="Resources\Images\**" />
+		<None Remove="View\Owner\ImagesOwner\actionBar.png" />
+		<None Remove="View\Owner\ImagesOwner\arrow.png" />
+		<None Remove="View\Owner\ImagesOwner\avatar.png" />
+		<None Remove="View\Owner\ImagesOwner\download.png" />
+		<None Remove="View\Owner\ImagesOwner\help.png" />
+		<None Remove="View\Owner\ImagesOwner\logo.png" />
+		<None Remove="View\Owner\ImagesOwner\notification.png" />
+		<None Remove="View\Owner\ImagesOwner\pdf.png" />
+		<None Remove="View\Owner\ImagesOwner\rightArrow.png" />
+		<None Remove="View\Traveler\LogoNew.jpg" />
+		<Content Include="Resources\Images\unavailable-image.jpg" />
+		<Content Include="View\Owner\ImagesOwner\actionBar.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="View\Owner\ImagesOwner\arrow.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="View\Owner\ImagesOwner\avatar.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="View\Owner\ImagesOwner\download.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="View\Owner\ImagesOwner\help.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="View\Owner\ImagesOwner\logo.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="View\Owner\ImagesOwner\notification.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="View\Owner\ImagesOwner\rightArrow.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
-  </ItemGroup>
+		<ItemGroup>
+			<Content Include="Resources\Images\save_hci.png" />
+			<Content Include="Resources\Images\search_hci.png" />
+		</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
-    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
-    <PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.20110.1" />
-    <PackageReference Include="WinForms.DataVisualization" Version="1.8.0" />
-  </ItemGroup>
+		<ItemGroup>
+			<PackageReference Include="devexpress.wpf.charts" Version="22.2.6" />
+			<PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+			<PackageReference Include="MahApps.Metro" Version="2.4.9" />
+			<PackageReference Include="Syncfusion.SfChart.WPF" Version="21.2.4" />
+			<PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.20110.1" />
+			<PackageReference Include="WinForms.DataVisualization" Version="1.8.0" />
+		</ItemGroup>
+
+		<ItemGroup>
+			<Resource Include="View\Traveler\LogoNew.jpg" />
+		</ItemGroup>
+
 
 </Project>
+

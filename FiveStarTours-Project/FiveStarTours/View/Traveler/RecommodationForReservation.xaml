@@ -1,0 +1,50 @@
+﻿<Window x:Class="FiveStarTours.View.Traveler.RecommodationForReservation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Traveler"
+        
+        mc:Ignorable="d"
+        Title="Recommodation" Height="768" Width="1059" Background="AliceBlue">
+    <Grid Margin="0,0,0,572" Background="#FFB2B2B2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="FiveStarTours" HorizontalAlignment="Left" Margin="-46,62,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="48" Width="157" Grid.ColumnSpan="3">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image HorizontalAlignment="Left" Height="149" Margin="27,0,0,0" VerticalAlignment="Center" Width="212" Source="/View/Traveler/LogoNew.jpg" Stretch="Fill" Grid.Column="2"/>
+        <TabControl Grid.Column="2" Name="Tab" DockPanel.Dock="Top" Margin="4,208,28,-534" FontSize="22" BorderThickness="3,3,3,3" BorderBrush="#FF221F1F" Background="#FFB4B4B4" Foreground="#FFC68787">
+            <TabItem Header="HELP US IMPROVE AND WRITE WHAT CAN BE CHANGED" Background="AliceBlue" FontSize="24" FontStretch="ExtraExpanded" FontWeight="ExtraBold" Foreground="#FFD73333" BorderBrush="#FF280202">
+                <WrapPanel>
+                    <TextBox Text="{Binding RecommodationText, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="262" Width="954"/>
+                    <Label Content="RENOVATION NECESESITY:" FontWeight="Bold" FontSize="36" Width="477" Height="62"/>
+                    <ComboBox Width="477" x:Name="NecessityCombo" ItemsSource="{Binding Necesities}" SelectedItem="{Binding Necessity}">
+                    </ComboBox>
+                    <DockPanel>
+                        <Button Content="SUBMIT"  FontWeight="Bold" Margin="387,44,-436,-44" Height="53" Width="209" BorderThickness="5,5,5,5" Click="Sumbit"/>
+                    </DockPanel>
+
+
+
+                </WrapPanel>
+
+            </TabItem>
+
+        </TabControl>
+        <Button Grid.Column="2" Content="GO BACK" HorizontalAlignment="Left" Margin="692,55,0,0" VerticalAlignment="Top" BorderThickness="5,5,5,5" FontSize="22" FontWeight="Bold" Height="76" Width="215" Click="back"/>
+
+    </Grid>
+
+</Window>

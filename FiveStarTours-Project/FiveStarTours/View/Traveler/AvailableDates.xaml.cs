@@ -66,6 +66,7 @@ namespace FiveStarTours.View.Traveler
             AccommodationName = accommodationName;
             _accommodationReservationService = new AccommodationReservationService();
             _accommodationService = new AccommodationsService();
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
 
         }
@@ -117,6 +118,11 @@ namespace FiveStarTours.View.Traveler
 
         }
 
+        private void goback(object sender, RoutedEventArgs e)
+        {
+            ReservationsView reservationsView = new ReservationsView();
+            reservationsView.Show();
 
+        }
     }
 }

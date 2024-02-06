@@ -74,7 +74,7 @@ namespace FiveStarTours.View.Visitor
 
             //tourListBox.Loaded += TourListBox_Loaded;
             SetImages();
- 
+
         }
         private void TourListBox_Loaded(object sender, RoutedEventArgs e)
         {
@@ -114,7 +114,7 @@ namespace FiveStarTours.View.Visitor
         {
             TourRequestView tourRequest = new TourRequestView(LoggedInUser);
             tourRequest.Show();
-            
+
         }
 
         private void RateClick(object sender, RoutedEventArgs e)
@@ -148,7 +148,7 @@ namespace FiveStarTours.View.Visitor
 
         }
 
-        
+
 
         private void NotificationsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -194,7 +194,7 @@ namespace FiveStarTours.View.Visitor
 
         private void BackgroundComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+
         }
         private void ViewButton_Click(object sender, RoutedEventArgs e)
         {

@@ -5,9 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveStarTours.View.Traveler"
         mc:Ignorable="d"
-        Title="ChangeReservation" Height="454" Width="800">
-    <Grid Background="#FFF9DEDE" Margin="0,0,-28,-16">
-        <Grid Grid.Row="0" Grid.Column="0" Margin="10,49,10,88" RenderTransformOrigin="0.441,0.511">
+        Title="ChangeReservation" Height="768" Width="1024" Background="AliceBlue">
+    <Grid Margin="0,0,0,586" Background="#FFB2B2B2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="780.983"/>
+            <ColumnDefinition Width="17.087"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="FiveStarTours" HorizontalAlignment="Left" Margin="-46,62,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="48" Width="157">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image HorizontalAlignment="Left" Height="149" Margin="55,0,0,0" VerticalAlignment="Center" Width="193" Source="/View/Traveler/LogoNew.jpg" Stretch="Fill"/>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="30,190,28,-478" RenderTransformOrigin="0.441,0.511" Grid.ColumnSpan="3" Background="#FFE8DFDF">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -78,12 +94,24 @@
             <TextBox Grid.Row="7"
                 Text="{Binding SelectedAccommodationReservation.VisitationDays, UpdateSourceTrigger=PropertyChanged}"
                 Margin="21,10,3,10" FontSize="14" Grid.Column="2"  IsEnabled="False" FontWeight="Bold" />
-            <DatePicker Grid.Row="4" SelectedDate="{Binding Path=NewStartDate, StringFormat='{}{0:dd.MM.yyyy}', UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="484" Height="30"/>
-            <DatePicker Grid.Row="5" SelectedDate="{Binding Path=NewEndDate, StringFormat='{}{0:dd.MM.yyyy}', UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" Width="484" Height="30"/>
+            <DatePicker FontSize="20" FontWeight="Bold" Grid.Row="4" SelectedDate="{Binding Path=NewStartDate, StringFormat='{}{0:dd.MM.yyyy}', UpdateSourceTrigger=PropertyChanged}"  SelectedDateChanged="DatePicker_SelectedDateChanged" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="590" Height="30"/>
+            <DatePicker FontSize="20" FontWeight="Bold" Grid.Row="5" SelectedDate="{Binding Path=NewEndDate, StringFormat='{}{0:dd.MM.yyyy}', UpdateSourceTrigger=PropertyChanged}"  SelectedDateChanged="DatePicker_SelectedDateChanged" Grid.Column="2" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" Width="590" Height="30"/>
+
 
 
         </Grid>
-        <Label Content="ENTER CHANGES:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Width="763" HorizontalContentAlignment="Center" Background="#FFAD6969"/>
-        <Button Content="Sumbit changes" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Background="#FF995E5E" BorderThickness="4,4,4,4" Height="58" Click="SubmitChanges"/>
+        <StatusBar Background="#FFA39999" Margin="5,649,-2,-579" Grid.ColumnSpan="3">
+            <Button FontWeight="Bold" HorizontalAlignment="Center" BorderThickness="5,5,5,5" FontSize="22" BorderBrush="#FF707070" Width="1006" VerticalAlignment="Center" Click="SubmitChanges" Height="69">
+                <StackPanel>
+                    <Image Source="/Resources/Images/save_hci.png" Height="20" Width="30"/>
+                    <TextBlock Text=" SUBMIT"/>
+                </StackPanel>
+            </Button>
+
+        </StatusBar>
+        <Button Content="GO BACK" HorizontalAlignment="Left" Margin="731,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" BorderThickness="5,5,5,5" Grid.ColumnSpan="3" Width="235" Height="90" Click="back"/>
+
+
+
     </Grid>
 </Window>

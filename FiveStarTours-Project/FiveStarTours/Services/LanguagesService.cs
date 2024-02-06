@@ -30,7 +30,5 @@ namespace FiveStarTours.Services
         {
             return _languagesRepository.NextId();
         }
-
-       
     }
 }

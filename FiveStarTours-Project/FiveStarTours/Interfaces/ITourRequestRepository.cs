@@ -13,6 +13,6 @@ namespace FiveStarTours.Interfaces
         TourRequest Save(TourRequest tourRequest);
         int NextId();
         TourRequest GetById(int id);
-      
+        public void FindIdAndSave(TourRequest request, int id);
     }
 }

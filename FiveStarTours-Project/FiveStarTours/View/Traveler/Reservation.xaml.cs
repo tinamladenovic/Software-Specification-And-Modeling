@@ -50,13 +50,9 @@ namespace FiveStarTours.View.Traveler
             SelectedAccommodation = selectedAccommoodation;
             StartDate = DateTime.Now;
             EndDate = DateTime.Now;
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
        
-        private void goback(object sender, RoutedEventArgs e)
-        {
-            TravelerViewandSearch tvs = new TravelerViewandSearch();
-            tvs.Show();
-        }
 
         private void checkButton_Click(object sender, RoutedEventArgs e)
         {
@@ -68,6 +64,24 @@ namespace FiveStarTours.View.Traveler
             AvailableDates availableDates = new AvailableDates(accommodationReservationService.GetFreeDateIntervals(SelectedAccommodation.AccommodationName, StartDate, EndDate, VisitationDays), SelectedAccommodation.AccommodationName);
             availableDates.Show();
             Close();
+        }
+
+        private void back(object sender, RoutedEventArgs e)
+        {
+            MainWindowLida mainWindowLida = new MainWindowLida();
+            mainWindowLida.Show();
+        }
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DatePicker datePicker = (DatePicker)sender;
+            DateTime? selectedDate = datePicker.SelectedDate;
+
+            
+            if (selectedDate.HasValue && selectedDate.Value < DateTime.Today)
+            {
+                MessageBox.Show("You can't select dates in the past!");
+                datePicker.SelectedDate = DateTime.Today;
+            }
         }
     }
 }

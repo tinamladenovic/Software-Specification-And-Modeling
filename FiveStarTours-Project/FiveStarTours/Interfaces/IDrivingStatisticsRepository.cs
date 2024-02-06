@@ -10,7 +10,7 @@ namespace FiveStarTours.Interfaces
     public interface IDrivingStatisticsRepository
     {
         List<DrivingStatisticsData> GetAll();
-        List<string> GetAllDrivingYears();
         int NextId();
+        public List<string> GetAllDrivingYears();
     }
 }

@@ -28,10 +28,10 @@ namespace FiveStarTours.View.Visitor
         {
             LoggedInUser = user;
             InitializeComponent();
-            
+
         }
 
-        
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -45,7 +45,7 @@ namespace FiveStarTours.View.Visitor
             ToursListingView toursListing = new ToursListingView(LoggedInUser);
             this.Visibility = Visibility.Hidden;
             toursListing.Show();
-       }
+        }
 
         private void NotificationsButton_Click(object sender, RoutedEventArgs e)
         {

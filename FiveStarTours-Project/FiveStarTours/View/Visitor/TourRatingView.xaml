@@ -14,32 +14,32 @@
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0" Background="Lavender" CornerRadius="15 15 15 15">
             <Grid Grid.Column="0" >
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Button Grid.Row="0" Click="InformationsButton_Click" Content="INFORMATIONS" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Click="InformationsButton_Click" Content="INFORMATIONS" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
                     BorderThickness="3" BorderBrush="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="1" Content="FOLLOW TOUR" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
+                <Button Grid.Row="1" Content="FOLLOW TOUR" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
                     BorderThickness="3" BorderBrush="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="2" Content="RATE TOUR" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="DarkGray"  
+                <Button Grid.Row="2" Content="RATE TOUR" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="DarkGray"  
                     BorderBrush="black" BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="3" Click="SearchButton_Click" Content="SEARCH RIDE" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
+                <Button Grid.Row="3" Click="SearchButton_Click" Content="SEARCH RIDE" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
                     BorderBrush="DarkGray" BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="4" Content="GROUP RIDE" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
+                <Button Grid.Row="4" Content="GROUP RIDE" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
                     BorderThickness="3" BorderBrush="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="5" Content="MY RIDES" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
+                <Button Grid.Row="5" Content="MY RIDES" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="WhiteSmoke"
                     BorderThickness="3" BorderBrush="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="6" Click="BackButton_Click" Content="BACK" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="Red"
+                <Button Grid.Row="6" Click="BackButton_Click" Content="BACK" Height="55" Width="200" FontSize="20" FontWeight="Medium" Background="Red"
                     BorderThickness="3" BorderBrush="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Grid>
+            </Grid>
         </Border>
-            <Grid Grid.Column="1" Background="WhiteSmoke">
+        <Grid Grid.Column="1" Background="WhiteSmoke">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
@@ -50,9 +50,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="60"/>
             </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="1" Content="PLEASE, RATE THE CURRENT TOUR TO HELP US IMPROVE EVERY NEXT ONE." BorderBrush="LightGray" BorderThickness="6"
+            <Label Grid.Row="0" Grid.Column="1" Content="PLEASE, RATE THE CURRENT TOUR TO HELP US IMPROVE EVERY NEXT ONE." BorderBrush="LightGray" BorderThickness="6"
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Background="LemonChiffon" FontWeight="Medium" />
-                <Border Grid.Row="1" Grid.Column="1" BorderThickness="6" BorderBrush="LightGray">
+            <Border Grid.Row="1" Grid.Column="1" BorderThickness="6" BorderBrush="LightGray">
                 <Grid Grid.Row="1" Grid.Column="1" Background="LemonChiffon">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>

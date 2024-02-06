@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveStarTours.View.Traveler"
         mc:Ignorable="d"
-        Title="AccommodationRatings" Height="460" Width="800">
-    <Grid Background="#FFF4DFDF" Margin="0,0,0,-35">
-        <Label Content="Rate accommodation " FontWeight="Bold" FontSize="20" Margin="0,0,0,404" Background="#FFEDBABA" HorizontalContentAlignment="Center"/>
-        <Label Content="!!1-Strongly disagree 2-Disagree 3-No opinion 4- Agree 5-Strongly agree!!" HorizontalAlignment="Left" Margin="19,30,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Width="771" Foreground="#FFF10A0A" HorizontalContentAlignment="Center" FontStyle="Italic" BorderBrush="#FFE31818" BorderThickness="4,4,4,4" IsEnabled="False"/>
-        <Grid Grid.Row="0" Grid.Column="0" Margin="19,68,222,-66">
+        Title="AccommodationRatings" Height="648" Width="1004">
+    <Grid Background="#FFF4DFDF" Margin="0,0,-96,-129">
+        <Label FontWeight="Bold" FontSize="20" Margin="0,0,10,472" Background="#FFEDBABA" HorizontalContentAlignment="Center"/>
+        <Label Content="!!1-Strongly disagree 2-Disagree 3-No opinion 4- Agree 5-Strongly agree!!" HorizontalAlignment="Left" Margin="19,30,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Width="823" Foreground="#FFF10A0A" HorizontalContentAlignment="Center" FontStyle="Italic" BorderBrush="#FFE31818" BorderThickness="4,4,4,4" IsEnabled="False"/>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="19,101,172,65">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -108,16 +108,26 @@
 
             <TextBox Grid.Row="5" Grid.Column="1"
                          Text="{Binding Path=Comment, UpdateSourceTrigger=PropertyChanged}"  
-                         Margin="0,10,-200,10" 
+                         Margin="0,10,29,10" 
                          FontSize="10"/>
             <TextBox Grid.Row="6" Grid.Column="1"
                          Text="{Binding Path=ImageURLs, UpdateSourceTrigger=PropertyChanged}"  
-                         Margin="0,5,-21,28" 
+                         Margin="0,5,97,28" 
                          FontSize="10"/>
 
 
         </Grid>
-        <Button Content="SUBMIT" HorizontalAlignment="Left" Margin="641,211,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFDC7171" BorderThickness="3,3,3,3" FontWeight="Bold" Width="113" Click="Submit"/>
+        <Button Content="RECOMMODATION" HorizontalAlignment="Left" Margin="833,553,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Width="268" Height="54" BorderThickness="5,5,5,5" BorderBrush="#FFE54040" Click="Recommodation" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.132"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Foreground="#FFDC7171" BorderThickness="3,3,3,3" FontWeight="Bold" Width="152" Click="Submit" Margin="971,309,0,0"/>
 
 
     </Grid>

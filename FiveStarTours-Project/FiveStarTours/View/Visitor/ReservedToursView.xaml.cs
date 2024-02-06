@@ -42,11 +42,11 @@ namespace FiveStarTours.View.Visitor
 
         private void RateButton_Click(object sender, RoutedEventArgs e)
         {
-            
-                TourRatingView tourRatingView = new TourRatingView(LoggedInUser);
-                tourRatingView.Show();
 
-            
+            TourRatingView tourRatingView = new TourRatingView(LoggedInUser);
+            tourRatingView.Show();
+
+
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

@@ -25,59 +25,56 @@ namespace FiveStarTours.View.Driver
     /// </summary>
     public partial class SuperDriver : Window
     {
-        
-        public SuperDriver()
+        private readonly UserService _userService;
+        private readonly VehicleOnAdressService _vehicleOnAdressService;
+
+
+        public User LoggedInUser { get; set; }
+        public int FastDriveNumber { get; set; }
+
+        public bool IsSuperDriver { get; set; }
+        public SuperDriver(User user)
         {
             InitializeComponent();
             DataContext = this;
-            
-            //from CSV file to SelectDriverComboBox
-            string csvFilePath = "../../../Resources/Data/vehicles.csv";
 
-            try
+            _userService = new UserService();
+
+            LoggedInUser = user;
+
+            VehicleOnAdressService _vehicleOnAdressService = new VehicleOnAdressService();
+
+            FastDriveNumber = _vehicleOnAdressService.FastDriveCount();
+
+            if (_vehicleOnAdressService.FastDriveCount() > 15)
             {
-                using (TextFieldParser parser = new TextFieldParser(csvFilePath))
-                {
-                    parser.TextFieldType = FieldType.Delimited;
-                    parser.SetDelimiters(",");
+                LoggedInUser.Super = true;
+                _userService.Update(LoggedInUser);
 
-                    while (!parser.EndOfData)
-                    {
-                        string[] fields = parser.ReadFields();
-
-                        // Assuming the values are in the first column of each line
-                        if (fields.Length > 0)
-                        {
-                            string value = fields[0];
-                            SuperDriverComboBox.Items.Add(value);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            
-        }
-
-        private void CheckHereButton_Click(object sender, RoutedEventArgs e)
-        {
-            string selectedItem = SuperDriverComboBox.SelectedItem.ToString();
-            string[] values = selectedItem.Split('|');
-            string lastValue = values[values.Length - 1];
-
-            // Assuming the last value is a number, you can convert it to an integer or any other numeric type if needed
-            int lastNumber = int.Parse(lastValue);
-
-            if (lastNumber >= 15)
-            {
-                TextBoxMessage.Text = "Your fast drive number is :" + lastNumber.ToString() + Environment.NewLine + "Yes! You are a super-driver!";
             }
             else
             {
-                TextBoxMessage.Text = "Your fast drive number is :" + lastNumber.ToString() + Environment.NewLine + "NO! You are NOT a super-driver!";
+                LoggedInUser.Super = false;
+                _userService.Update(LoggedInUser);
             }
+
+            if (LoggedInUser.Super == true)
+            {
+                IsSuperDriver = true;
+            }
+            else
+            {
+                IsSuperDriver = false;
+            }
+
+            return;
+
+
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

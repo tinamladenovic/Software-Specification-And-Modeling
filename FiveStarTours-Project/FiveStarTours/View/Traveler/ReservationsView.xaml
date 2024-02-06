@@ -5,17 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveStarTours.View.Traveler"
         mc:Ignorable="d"
-        Title="ReservationsView" Height="450" Width="800">
-    <Grid Margin="5,5,5,5" Background="#FFEEDFDF" >
+        Title="ReservationsView" Height="768" Width="1024" Background="#FFE5E5E5">
+    <Grid Margin="0,0,0,572" Background="#FFB2B2B2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="780.983"/>
+            <ColumnDefinition Width="17.087"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="FiveStarTours" HorizontalAlignment="Left" Margin="-46,62,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="48" Width="157">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image HorizontalAlignment="Left" Height="149" Margin="55,0,0,0" VerticalAlignment="Center" Width="193" Source="/View/Traveler/LogoNew.jpg" Stretch="Fill"/>
         <DataGrid x:Name="MyDisplay" AutoGenerateColumns="False" ItemsSource="{Binding Reservations }" GridLinesVisibility="All"
                            SelectedItem="{Binding Path=SelectedReservation}"
                                
-                                IsReadOnly="True" SelectionMode="Single" Margin="0,62,0,155" FontSize="18"  >
+                                IsReadOnly="True" SelectionMode="Single" Margin="0,192,0,-451" FontSize="22" Grid.ColumnSpan="3" BorderBrush="#FF545E67" FontWeight="Bold" Background="#FFB5AEAE" HorizontalAlignment="Center" Width="940"  >
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id }" Width="20"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding GuestName}" Width="130"/>
-                <DataGridTextColumn Header="Accommodation name" Binding="{Binding AccommodationName }" Width="200"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id }" Width="30"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding GuestName}" Width="100"/>
+                <DataGridTextColumn Header="Accommodation name" Binding="{Binding AccommodationName }" Width="250"/>
                 <DataGridTextColumn Header="Start date"  Binding="{Binding StartDate ,StringFormat='{}{0:dd.MM.yyyy}'}"/>
                 <DataGridTextColumn Header="End date"  Binding="{Binding EndDate, StringFormat='{}{0:dd.MM.yyyy}'}"/>
                 <DataGridTextColumn Header="Length of stay"  Binding="{Binding VisitationDays}"/>
@@ -29,14 +45,21 @@
                     <Setter Property="FontWeight" Value="Bold"/>
                     <Setter Property="BorderThickness" Value="2,2,2,2"/>
                     <Setter Property="BorderBrush" Value="LightBlue"/>
+                    
 
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-        <Button Content="CANCEL RESERVATION" HorizontalAlignment="Left" Margin="31,320,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Background="#FFCF748B" Height="43" BorderThickness="3,3,3,3" BorderBrush="#FF161414" Width="185" Click="Cancel" RenderTransformOrigin="0.749,0.468"/>
-        <Button Content="CHANGE RESERVATION" HorizontalAlignment="Left" Margin="216,320,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Background="#FFCF748B" Height="43" BorderThickness="3,3,3,3" BorderBrush="#FF131212" Click="Change" Width="218"/>
-        <Button Content="RATE" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Background="#FFCF748B" Height="43" BorderThickness="3,3,3,3" BorderBrush="#FF131212" Margin="434,320,0,0" Width="158" Click="Rate"/>
-        <Button Content="VIEW REQUEST"  HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Background="#FFCF748B" Height="43" BorderThickness="3,3,3,3" BorderBrush="#FF131212" Margin="592,320,0,0" Width="168" Click="ViewRequest" />
-        <Label Content="All reservations" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Background="#FFDF9090" Width="578" Height="52" HorizontalContentAlignment="Center" BorderThickness="3,3,3,3" BorderBrush="#FF100E0E" Margin="0,5,0,0"/>
+        <StatusBar Grid.ColumnSpan="3" Margin="2,652,2,-574" Background="#FFA39999">
+
+
+
+            <Button Content="CHANGE RESERVATION" FontWeight="Bold" FontSize="20" Height="69" Width="307" HorizontalAlignment="Center" BorderThickness="5,5,5,5" BorderBrush="#FF3D3838" Click="Change"/>
+            <Button Content="CANCEL RESERVATION" FontWeight="Bold" FontSize="20" Height="67" Width="292" HorizontalAlignment="Center" BorderThickness="5,5,5,5" BorderBrush="#FF3D3838" Click="Cancel"/>
+            <Button Content="RATE ACCOMMODATION AND OWNER" FontSize="20" FontWeight="Bold" Height="66" Width="379" BorderThickness="5,5,5,5" BorderBrush="#FF3D3838" Click="Rate"/>
+
+        </StatusBar>
+        <Button Content="GO BACK" HorizontalAlignment="Left" Margin="727,39,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" BorderThickness="5,5,5,5" Grid.ColumnSpan="3" Width="220" Height="86" Click="back"/>
+
     </Grid>
 </Window>

@@ -65,7 +65,7 @@ namespace FiveStarTours.View.Visitor
         public int tourId;
         private void TourComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(TourComboBox.SelectedItem != null)
+            if (TourComboBox.SelectedItem != null)
             {
                 selectedTour = TourComboBox.SelectedItem as string;
                 tourId = _toursRepository.GetByName(selectedTour);
@@ -96,7 +96,7 @@ namespace FiveStarTours.View.Visitor
             }
         }
 
-        public List<string > GetAllTours()
+        public List<string> GetAllTours()
         {
             List<string> result;
             List<int> ids = _attendanceRepository.GetVisitedTours(LoggedInUser.Id);

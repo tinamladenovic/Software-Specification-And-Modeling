@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveStarTours.View.Driver"
         mc:Ignorable="d"
-        Title="Super Driver" Height="450" Width="500">
+        Title="Super Driver" Height="350" Width="500">
     <Grid Background="#FFEBB7F3">
         <Label Content="Are you a super-driver?" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" FontSize="22" FontStyle="Italic" RenderTransformOrigin="-0.095,0.204"/>
-        <Label Content="Choose driver*" HorizontalAlignment="Left" Margin="76,128,0,0" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
-        <ComboBox x:Name="SuperDriverComboBox" HorizontalAlignment="Left" Margin="210,134,0,0" VerticalAlignment="Top" Width="200" Height="22">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-        </ComboBox>
-        <TextBox x:Name="TextBoxMessage" HorizontalAlignment="Center" Margin="0,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Height="63" Background="#FFF5F1F1" BorderBrush="#FF5B5B5B" />
-        <Button x:Name="CheckHereButton" Content="CHECK HERE" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckHereButton_Click" Height="41" Width="116" FontWeight="Bold" Background="#FFFFFCBD"/>
+        <CheckBox Content="SUPER DRIVER" IsChecked="{Binding IsSuperDriver}" IsEnabled="False" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Height="29" Width="150" FontWeight="Bold" RenderTransformOrigin="0.486,0.967" FontSize="16">
+            <CheckBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.829"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.92"/>
+                </TransformGroup>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <Label Content="Fast Drive Number:" HorizontalAlignment="Left" Margin="151,179,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Text="{Binding Path=FastDriveNumber}" HorizontalAlignment="Left" Margin="301,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Height="30" RenderTransformOrigin="1.767,0.535"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="119,156,119,186" RenderTransformOrigin="-1.014,0.614"/>
+        <Button x:Name="CloseButton" Content="CLOSE" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.558,0.382" Width="100" Height="30" FontWeight="Bold" Click="CloseButton_Click"/>
 
     </Grid>
 </Window>

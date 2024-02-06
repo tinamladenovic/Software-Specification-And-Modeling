@@ -42,7 +42,7 @@ namespace FiveStarTours.View.Visitor
             get => _phoneNumber;
             set
             {
-                if(value != _phoneNumber)
+                if (value != _phoneNumber)
                 {
                     _phoneNumber = value;
                     OnPropertyChanged();
@@ -56,7 +56,7 @@ namespace FiveStarTours.View.Visitor
             get => _membersNumber;
             set
             {
-                if( value != _membersNumber)
+                if (value != _membersNumber)
                 {
                     _membersNumber = value;
                     OnPropertyChanged();
@@ -69,7 +69,7 @@ namespace FiveStarTours.View.Visitor
             get => _email;
             set
             {
-                if(_email != value)
+                if (_email != value)
                 {
                     _email = value;
                     OnPropertyChanged();
@@ -126,7 +126,7 @@ namespace FiveStarTours.View.Visitor
         }
         public List<string> GetName(List<int> keyPoints)
         {
-            List<string> result  = new List<string>();
+            List<string> result = new List<string>();
             foreach (int i in keyPoints)
             {
                 result.Add(_keyPointsRepository.GetById(i));
@@ -139,21 +139,21 @@ namespace FiveStarTours.View.Visitor
         {
             KeyPoints startingKeyPoint = new KeyPoints();
             startingKeyPoint.Name = selectedKeyPoint;
-            if(freeSeats < Convert.ToInt32(MembersNumber))
+            if (freeSeats < Convert.ToInt32(MembersNumber))
             {
                 MessageBox.Show($"No enough seats for this reservation. Left seats : {freeSeats}");
                 return;
             }
-            foreach(var keyPoint in _keyPointsRepository.GetAll())
+            foreach (var keyPoint in _keyPointsRepository.GetAll())
             {
-                if(startingKeyPoint.Name == keyPoint.Name)
+                if (startingKeyPoint.Name == keyPoint.Name)
                 {
                     startingKeyPoint.Id = keyPoint.Id;
                 }
             }
             DateTime dateTime = new DateTime();
             dateTime = selectedDateTime;
-            
+
             TourReservation visitor = new TourReservation(Names, PhoneNumber, SelectedTour.Id, startingKeyPoint.Id, startingKeyPoint, dateTime, Convert.ToInt32(MembersNumber), Email, giftCard);
             _visitorRepository.Save(visitor);
             MessageBox.Show("Reservation has just made.");
@@ -171,7 +171,7 @@ namespace FiveStarTours.View.Visitor
         private string selectedKeyPoint;
         private void StartingKeyPoint_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(StartingKeyPoint.SelectedItem != null)
+            if (StartingKeyPoint.SelectedItem != null)
             {
                 selectedKeyPoint = StartingKeyPoint.SelectedItem as string;
 
@@ -180,14 +180,14 @@ namespace FiveStarTours.View.Visitor
         private DateTime selectedDateTime;
         private void DateTime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(DateTimeComboBox.SelectedItem != null)
+            if (DateTimeComboBox.SelectedItem != null)
             {
                 selectedDateTime = (DateTime)DateTimeComboBox.SelectedItem;//as DateTime;
             }
         }
         private void GiftCardComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(GiftCardComboBox.SelectedItem != null)
+            if (GiftCardComboBox.SelectedItem != null)
             {
                 giftCard = true;
                 _giftCardRepository.Delete(GiftCardComboBox.SelectedItem.ToString());
@@ -204,8 +204,8 @@ namespace FiveStarTours.View.Visitor
             Names.Add(item);
         }
 
-      
 
-       
+
+
     }
 }

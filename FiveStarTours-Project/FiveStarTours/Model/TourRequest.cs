@@ -16,15 +16,16 @@ namespace FiveStarTours.Model
         public int IdLanguage { get; set; }
         public Language Language { get; set; }
         public int MaxGuests { get; set; }
-        public List<DateInterval> Intervals { get; set; }
+        public DateInterval Intervals { get; set; }
         public DateTime DateTime { get; set; }
+        public DateTime AcceptDateTime { get; set; }
         public ReservationChangeStatusType Status { get; set; } = ReservationChangeStatusType.Processing;
 
 
         public TourRequest() { }
 
         public TourRequest(int idLocation, Location location, string description, int idLanguage, Language language, int maxGuests, 
-              List<DateInterval> intervals, DateTime dateTime) 
+              DateInterval intervals, DateTime dateTime) 
         {  
             IdLocation = idLocation;
             Location = location;
@@ -34,7 +35,6 @@ namespace FiveStarTours.Model
             MaxGuests = maxGuests;
             Intervals = intervals;
             DateTime = dateTime;
-        
         }
 
         public string[] ToCSV()
@@ -48,6 +48,7 @@ namespace FiveStarTours.Model
               MaxGuests.ToString(),
               MakeInterval(Intervals),
               DateTime.ToString(),
+              AcceptDateTime.ToString(),
               Status.ToString()};
             return csvValues;
         }
@@ -55,14 +56,44 @@ namespace FiveStarTours.Model
         {
             Id = Convert.ToInt32(values[0]);
             IdLocation = Convert.ToInt32(values[1]);
+            Location = FindLocation(IdLocation);
             Description = values[2];
             IdLanguage = Convert.ToInt32(values[3]);
+            Language = FindLanguage(IdLanguage);
             MaxGuests = Convert.ToInt32(values[4]);
-            Intervals = GetDateIntervals(values[5]);
+            Intervals = GetDateInterval(values[5]);
             DateTime = Convert.ToDateTime(values[6]);
-            Status = Enum.Parse<ReservationChangeStatusType>(values[7]);
+            AcceptDateTime = Convert.ToDateTime(values[7]);
+            Status = Enum.Parse<ReservationChangeStatusType>(values[8]);
+        }
 
+        private Location FindLocation(int id)
+        {
+            LocationsRepository locationsRepository = new LocationsRepository();
+            Location location = null;
+            foreach(Location l in locationsRepository.GetAll())
+            {
+                if(l.Id == id)
+                {
+                    location = l;
+                }
+            }
+            return location;
+        }
 
+        private Language FindLanguage(int id)
+        {
+            LanguagesRepository languagesRepository = new LanguagesRepository();
+            Language language = null;
+            foreach(Language l in languagesRepository.GetAll())
+            {
+                if(l.Id == id)
+                {
+                    language = l;
+                }
+            }
+
+            return language;
         }
 
         public List<DateTime> ConvertToDateTime(string values)
@@ -95,33 +126,18 @@ namespace FiveStarTours.Model
 
         }
 
-
-        public string MakeInterval(List<DateInterval> Intervals)
+        public string MakeInterval(DateInterval Interval)
         {
-            List<string> strings = new List<string>();
-            string result = null;
-            foreach (DateInterval interval in Intervals)
-            {
-                strings.Add(interval.Start.ToString() + " - " + interval.End.ToString());
-            }
-            result = string.Join(';', strings);
-
+            string result = Interval.Start.ToString() + " - " + Interval.End.ToString();
             return result;
         }
 
-        public List<DateInterval> GetDateIntervals(string values)
+        public DateInterval GetDateInterval(string values)
         {
-            List<DateInterval> intervals = new List<DateInterval>();
-            foreach (string date in values.Split(";"))
-            {
-                List<string> interval = date.Split(" - ").ToList();
-                DateTime Start = DateTime.Parse(interval[0]);
-                DateTime End = DateTime.Parse(interval[1]);
-                intervals.Add(new DateInterval(Start, End));
-            }
-            return intervals;
+            List<string> interval = values.Split(" - ").ToList();
+            DateTime Start = DateTime.Parse(interval[0]);
+            DateTime End = DateTime.Parse(interval[1]);
+            return new DateInterval(Start, End);
         }
-        
-
     }
 }

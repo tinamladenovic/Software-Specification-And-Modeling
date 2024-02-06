@@ -72,7 +72,7 @@ namespace FiveStarTours.View.Traveler
             _reservationChangeService = new ReservationChangeService();
             NewStartDate = DateTime.Now;
             NewEndDate = DateTime.Now;
-
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
         protected virtual void OnPropertyChanged([CallerMemberName] string properyName = null)
         {
@@ -84,6 +84,25 @@ namespace FiveStarTours.View.Traveler
             ReservationChange reservationChange = new ReservationChange(-1, SelectedAccommodationReservation, NewStartDate, NewEndDate, ReservationChangeStatusType.Processing, false, "");
             _reservationChangeService.Save(reservationChange);
             
+        }
+
+        private void back(object sender, RoutedEventArgs e)
+        {
+            ReservationsView reservationsView = new ReservationsView();
+            reservationsView.Show();
+            Close();
+        }
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DatePicker datePicker = (DatePicker)sender;
+            DateTime? selectedDate = datePicker.SelectedDate;
+
+
+            if (selectedDate.HasValue && selectedDate.Value < DateTime.Today)
+            {
+                MessageBox.Show("You can't select dates in the past!");
+                datePicker.SelectedDate = DateTime.Today;
+            }
         }
     }
 }

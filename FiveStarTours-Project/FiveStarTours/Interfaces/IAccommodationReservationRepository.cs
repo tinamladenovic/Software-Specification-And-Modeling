@@ -29,6 +29,9 @@ namespace FiveStarTours.Interfaces
         bool IsAbleToRate(int reservationId);
         bool IsAbleToCancel(int reservationId);
         void UserCancelsReservation(AccommodationReservation accommodationReservation);
+        int CountReservations();
+        int CountReservationsInLastYear();
+        int UpdateBonusPoints(int reservationCount, int currentPoints);
 
 
     }

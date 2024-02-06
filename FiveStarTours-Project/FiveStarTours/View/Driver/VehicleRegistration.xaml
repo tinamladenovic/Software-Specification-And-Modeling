@@ -20,7 +20,7 @@
         <TextBox HorizontalAlignment="Left" Margin="258,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=MaxPersonNum, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox HorizontalAlignment="Left" Margin="258,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=Languages, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox HorizontalAlignment="Left" Margin="258,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=ImageUrls, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox HorizontalAlignment="Left" Margin="254,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=DriverName, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox HorizontalAlignment="Left" Margin="254,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" />
         <Label Content="Name*" HorizontalAlignment="Left" Margin="184,95,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Driver Registration" HorizontalAlignment="Left" Margin="224,25,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Margin="258,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Height="22" Text="{Binding Path=FastDriveNum, UpdateSourceTrigger=PropertyChanged}"/>

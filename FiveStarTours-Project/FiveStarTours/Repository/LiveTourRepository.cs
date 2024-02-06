@@ -61,23 +61,23 @@ namespace FiveStarTours.Repository
             _serializer.ToCSV(FilePath, liveToursList);
         }
 
-        public List<string> GetEndedTours(List<Tour> tours)
+        public List<Tour> GetEndedTours(List<Tour> tours)
         {
-            List<string> result = new List<string>();
+            List<Tour> result = new List<Tour>();
             foreach (LiveTour liveTour in GetAll())
             {
-                foreach(var tour in tours)
+                foreach (var tour in tours)
                 {
                     if (liveTour.Ended && tour.Id == liveTour.IdTour)
                     {
-                        result.Add(liveTour.Name);
+                        result.Add(tour);
                     }
                 }
             }
             return result;
         }
 
-        public List<string> GetDates(string liveTour)
+            public List<string> GetDates(string liveTour)
         {
             var result = new List<string>();
             foreach(LiveTour lt in GetAll())

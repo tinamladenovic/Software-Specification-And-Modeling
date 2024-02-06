@@ -22,15 +22,15 @@ namespace FiveStarTours.View.VehicleRegistration
         private readonly LocationsRepository _locationsRepository;
 
 
-        private string _driverName;
-        public string DriverName
+        private string _name;
+        public string Name
         {
-            get => _driverName;
+            get => _name;
             set
             {
-                if (value != _driverName)
+                if (value != _name)
                 {
-                    _driverName = value;
+                    _name = value;
                     OnPropertyChanged();
                 }
             }
@@ -159,7 +159,7 @@ namespace FiveStarTours.View.VehicleRegistration
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             //Name
-            string drivername = Convert.ToString(DriverName);
+            
 
             //Location
             Location location = new Location();
@@ -222,7 +222,7 @@ namespace FiveStarTours.View.VehicleRegistration
             }
 
 
-            Vehicle newVehicle = new Vehicle( drivername, location.Id, location, MaximumPersonNumber, LanguageList , LanguageIds, ImageUrlsList , FastDriveNumber);
+            Vehicle newVehicle = new Vehicle( Name, location.Id, location, MaximumPersonNumber, LanguageList , LanguageIds, ImageUrlsList , FastDriveNumber);
             _vehicleRepository.Save(newVehicle);
             MessageBox.Show("Data saved successfully.");
             Close();

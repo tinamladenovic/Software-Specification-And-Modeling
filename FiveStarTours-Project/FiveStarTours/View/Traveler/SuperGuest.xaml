@@ -1,0 +1,67 @@
+﻿<Window x:Class="FiveStarTours.View.Traveler.SuperGuest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Traveler" xmlns:viewmodel="clr-namespace:FiveStarTours.ViewModel" 
+        mc:Ignorable="d"
+        Title="SuperGuest" Height="768" Width="1024" Background="AliceBlue">
+    <Grid Margin="0,0,0,578" Background="#FFB2B2B2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="1" Content="FiveStarTours" HorizontalAlignment="Left" Margin="-69,45,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="48" Width="177">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="149" Margin="55,0,0,0" VerticalAlignment="Center" Width="193" Source="/View/Traveler/LogoNew.jpg" Stretch="Fill"/>
+        <TabControl Grid.Column="1" Name="Tab" DockPanel.Dock="Top" Margin="10,208,7,-521" FontSize="28" BorderThickness="3,3,3,3" BorderBrush="#FF221F1F" Background="#FFB2B2B2" Foreground="#FFC68787">
+            <TabItem Header="RESERVATION COUNTER" FontStretch="ExtraExpanded" FontWeight="ExtraBold">
+                <StackPanel Height="261">
+                    <Label HorizontalContentAlignment="Center" Height="78" FontSize="36" Width="494" Content="CURRENT NUMBER:"/>
+                    <TextBox Text="{Binding Path=NumberOfReservations}" IsEnabled="False" TextWrapping="Wrap" Width="120" Height="89" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" TextAlignment="Center"/>
+                    <Label Content="(GOAL 10 RESERVATIONS IN ONE YEAR)" FontWeight="Bold" FontSize="36" HorizontalContentAlignment="Center" Height="78" Foreground="#FFC13B3B"/>
+
+
+                </StackPanel>
+
+
+
+
+            </TabItem>
+            <TabItem Header="POINTS COUNTER" FontWeight="ExtraBold" Background="#FFB2B2B2">
+                <StackPanel Height="261">
+                    <Label HorizontalContentAlignment="Center" Height="78" FontSize="36" Width="494" Content="CURRENT NUMBER:"/>
+                    <TextBox Text="{Binding Path= NumberOfPoints}" IsEnabled="False" TextWrapping="Wrap" Width="120" Height="89" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" TextAlignment="Center"/>
+                    <Label Content="(BENEFITS: 5 POINTS(DISCOUNT) TO USE IN RESERVATIONS" FontWeight="Bold" FontSize="35" HorizontalContentAlignment="Center" Height="78" Foreground="#FFC13B3B" HorizontalAlignment="Center"/>
+
+
+                </StackPanel>
+
+            </TabItem>
+        </TabControl>
+       
+            <CheckBox x:Name="CheckBoxSuper" IsChecked="{Binding Path=IsSuperGuest}" Grid.Column="1" Content="SUPER-GUEST" HorizontalAlignment="Left" Margin="313,87,0,0" VerticalAlignment="Top" FontWeight="Black" FontSize="45" Width="363" BorderThickness="5,5,5,5" HorizontalContentAlignment="Center" IsEnabled="False" Background="#FFB68080" Height="75"/>
+      
+        <Button Grid.Column="1" Content="GO BACK" HorizontalAlignment="Left" Margin="775,0,0,0" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Width="214" Height="64" RenderTransformOrigin="0.5,0.5" BorderThickness="5,5,5,5" Click="back">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.356"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.758"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+
+
+    </Grid>
+</Window>

@@ -37,7 +37,7 @@ namespace FiveStarTours.Services
             _liveTourRepository.FindIdAndSave(liveTour, idLiveTour);    
         }
 
-        public List<string> GetEndedTours(List<Tour> tours)
+        public List<Tour> GetEndedTours(List<Tour> tours)
         {
             return _liveTourRepository.GetEndedTours(tours);
         }

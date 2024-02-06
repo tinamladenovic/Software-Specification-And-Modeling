@@ -75,6 +75,7 @@ namespace FiveStarTours.View.Traveler
             NewStartDate = DateTime.Now;
             NewEndDate = DateTime.Now;
             Changes = new ObservableCollection<ReservationChange>(_reservationChangeService.GetAll());
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void back(object sender, RoutedEventArgs e)

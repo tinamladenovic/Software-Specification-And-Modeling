@@ -39,7 +39,7 @@ namespace FiveStarTours.View.Owner
             LoggedInUser = user;
 
             
-            Reservations = new ObservableCollection<AccommodationReservation>(_service.GetRatesForOwner());
+            Reservations = new ObservableCollection<AccommodationReservation>(_service.GetRatesForGuest());
 
         }
 

@@ -22,7 +22,7 @@ namespace FiveStarTours.View.Visitor
     /// Interaction logic for GiftCardsListingView.xaml
     /// </summary>
     public partial class GiftCardsListingView : Window
-    {     
+    {
         public User LoggedInUser { get; set; }
         public static ObservableCollection<GiftCard> GiftCards { get; set; }
         public GiftCard SelectedGiftCard { get; set; }
@@ -38,11 +38,11 @@ namespace FiveStarTours.View.Visitor
             GiftCards = new ObservableCollection<GiftCard>(_repository.GetAll());
         }
 
-        
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            ToursListingView tourListing= new ToursListingView(LoggedInUser);
+            ToursListingView tourListing = new ToursListingView(LoggedInUser);
             tourListing.Show();
         }
     }

@@ -68,7 +68,7 @@ namespace FiveStarTours.View.Visitor
             timer.Start();
         }
 
-        
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             // Check if the shared object's notification message has changed
@@ -103,7 +103,7 @@ namespace FiveStarTours.View.Visitor
             }
             return null;
         }
-        
+
 
 
         private string _startingStreet;
@@ -119,8 +119,8 @@ namespace FiveStarTours.View.Visitor
                 }
             }
         }
-        
-        
+
+
         private string _destinationStreet;
         public string DestinationStreet
         {
@@ -158,7 +158,7 @@ namespace FiveStarTours.View.Visitor
                 selectedStartingState = StartingCity.SelectedItem as string;
             }
         }
-        
+
 
         private void StartingCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -225,16 +225,16 @@ namespace FiveStarTours.View.Visitor
             }
 
         }*/
-        
+
         private void ReserveButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             Location startingLocation = new Location();
             Location destinationLocation = new Location();
             startingLocation = GetSelectedLocation(selectedStartingCity);
             destinationLocation = GetSelectedLocation(selectedDestinationCity);
 
-            ReservedDrivings result = new ReservedDrivings(startingLocation.Id, destinationLocation.Id, startingLocation, StartingStreet,  destinationLocation, DestinationStreet, StartingTime, LoggedInUser.Id);
+            ReservedDrivings result = new ReservedDrivings(startingLocation.Id, destinationLocation.Id, startingLocation, StartingStreet, destinationLocation, DestinationStreet, StartingTime, LoggedInUser.Id);
             _reservedDrivingsRepository.Save(result);
             MessageBox.Show("Reservation has just made.");
         }

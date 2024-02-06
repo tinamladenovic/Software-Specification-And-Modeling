@@ -28,6 +28,7 @@ namespace FiveStarTours.View.Traveler
         private readonly AccommodationReservationService _reservationservice;
         private readonly AccommodationRatingService _rateservice;
         public event PropertyChangedEventHandler? PropertyChanged;
+        public AccommodationReservation SelectedReservation { get; set; }
         protected virtual void OnPropertyChanged([CallerMemberName] string properyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(properyName));
@@ -241,5 +242,17 @@ namespace FiveStarTours.View.Traveler
             return true;
         }
 
+        private void Recommodation(object sender, RoutedEventArgs e)
+        {
+
+
+            RecommodationForReservation recommodation = new RecommodationForReservation(SelectedReservation);
+                recommodation.Show();
+                Close();
+
+            
+        }
+      
+        }
     }
-}
+

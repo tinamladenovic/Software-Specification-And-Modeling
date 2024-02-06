@@ -30,9 +30,8 @@ namespace FiveStarTours.Model
         public int DaysPossibleToCancel { get; set; } = 1; 
         public bool RecentlyRenovated { get; set; }
 
+        public List<string> ImageURLs { get; set; }
         public ImageSource FrontImage { get; set; }
-
-        public List<string> ImageURLs { get; set; }  
 
         public Accommodation() { }
 
@@ -90,10 +89,5 @@ namespace FiveStarTours.Model
             RecentlyRenovated = Convert.ToBoolean(values[8]);
         }
 
-
-
-
-
-        
     }
 }

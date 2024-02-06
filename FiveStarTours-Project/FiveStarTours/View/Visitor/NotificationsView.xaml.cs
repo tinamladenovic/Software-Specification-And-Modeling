@@ -35,7 +35,7 @@ namespace FiveStarTours.View.Visitor
             InitializeComponent();
             DataContext = this;
             GiftCardService repository = new GiftCardService();
-            
+
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -57,7 +57,7 @@ namespace FiveStarTours.View.Visitor
             UserResponse = "yes";
             yesCounter++;
             MessageBox.Show("OK");
-            if(yesCounter == 5)
+            if (yesCounter == 5)
             {
                 MessageBox.Show("Congratulation! You have just received a voucher that you can use for any tour. " +
                     "The voucher has been added to your list of vouchers");

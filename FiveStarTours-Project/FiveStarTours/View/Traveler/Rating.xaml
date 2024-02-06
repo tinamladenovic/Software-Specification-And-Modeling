@@ -1,0 +1,103 @@
+﻿<Window x:Class="FiveStarTours.View.Traveler.Rating"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Traveler"
+        mc:Ignorable="d"
+        Title="Rating" Height="768" Width="1024" Background="AliceBlue">
+    <Grid Margin="0,0,0,579" Background="#FFB2B2B2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="1" Content="FiveStarTours" HorizontalAlignment="Left" Margin="-69,45,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="48" Width="177">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="149" Margin="55,0,0,0" VerticalAlignment="Center" Width="193" Source="/View/Traveler/LogoNew.jpg" Stretch="Fill"/>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="40,194,0,-473" RenderTransformOrigin="0.441,0.49" Background="#FFE8DFDF" HorizontalAlignment="Left" Width="953">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="87*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="84*"/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="52*"/>
+                <RowDefinition Height="81*"/>
+                <RowDefinition Height="72*"/>
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="325*"></ColumnDefinition>
+                <ColumnDefinition Width="287*"></ColumnDefinition>
+                <ColumnDefinition Width="343*"/>
+                <ColumnDefinition Width="9*"/>
+
+
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0"
+                   Content="OWNER FULFILED THE AGREEMENT:" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" Width="305"/>
+            <Label Grid.Row="1"
+                       Content="ACCOMMODATION WAS VERY CLEAN:" 
+                       Margin="0,10,0,0"
+                       Foreground="#FF1E1C1E" FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="37" Width="306"/>
+            <Label Grid.Row="2"
+                       Content="ACCOMMODATION AS IN PICTURE:" 
+                       Margin="0,10,0,10"
+                       Foreground="#FF131213" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Width="280"/>
+            <Label Grid.Row="4"
+                       Content="EVERYTHING WORKED CORRECTLY:" 
+                       Margin="0,4,0,6"
+                       Foreground="#FF131213" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Width="280"/>
+            <Label Grid.Row="5"
+                       Content="OVERALL GREAT EXPERIENCE:" 
+                       Margin="0,13,0,7"
+                       Foreground="#FF131213" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Width="280"/>
+            <RadioButton Grid.Column="1" x:Name="Owner1"  GroupName="OwnerRating" Content="1" HorizontalAlignment="Left" Margin="21,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontWeight="Bold" FontSize="16"/>
+            <RadioButton Grid.Column="1" x:Name="Owner2"  GroupName="OwnerRating" Content="2" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold"/>
+            <RadioButton Grid.Column="1" x:Name="Owner3"  GroupName="OwnerRating" Content="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="85" Grid.ColumnSpan="2" Margin="238,0,0,0" FontSize="16" FontWeight="Bold"/>
+            <RadioButton Grid.Column="2" x:Name="Owner4"  GroupName="OwnerRating" Content="4" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold"/>
+            <RadioButton Grid.Column="2" x:Name="Owner5"  GroupName="OwnerRating" Content="5" HorizontalAlignment="Left" Margin="172,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold"/>
+            <RadioButton Grid.Column="1" x:Name="Clean1"  GroupName="CleanAcc" Content="1" HorizontalAlignment="Left" Margin="21,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontWeight="Bold" FontSize="16" Grid.Row="1"/>
+            <RadioButton Grid.Column="1" x:Name="Clean2"  GroupName="CleanAcc" Content="2" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="1"/>
+            <RadioButton Grid.Column="1" x:Name="Clean3"  GroupName="CleanAcc" Content="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="85" Grid.ColumnSpan="2" Margin="238,0,0,0" FontSize="16" FontWeight="Bold" Grid.Row="1"/>
+            <RadioButton Grid.Column="2" x:Name="Clean4"  GroupName="CleanAcc" Content="4" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="1"/>
+            <RadioButton Grid.Column="2" x:Name="Clean5"  GroupName="CleanAcc" Content="5" HorizontalAlignment="Left" Margin="172,0,0,0" VerticalAlignment="Center" Height="30" Width="84" FontSize="16" FontWeight="Bold" Grid.Row="1"/>
+            <RadioButton Grid.Column="1" x:Name="Overall1"  GroupName="Overall" Content="1" HorizontalAlignment="Left" Margin="21,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontWeight="Bold" FontSize="16" Grid.Row="5"/>
+            <RadioButton Grid.Column="1" x:Name="Overall2"  GroupName="Overall" Content="2" HorizontalAlignment="Left" Margin="129,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="5"/>
+            <RadioButton Grid.Column="1" x:Name="Overall3"  GroupName="Overall" Content="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="85" Grid.ColumnSpan="2" Margin="238,0,0,0" FontSize="16" FontWeight="Bold" Grid.Row="5"/>
+            <RadioButton Grid.Column="2" x:Name="Overall4"  GroupName="Overall" Content="4" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="5"/>
+            <RadioButton Grid.Column="2" x:Name="Overall5"  GroupName="Overall" Content="5" HorizontalAlignment="Left" Margin="171,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="5"/>
+            <RadioButton Grid.Column="1" x:Name="Corect1"  GroupName="CorectAcc" Content="1" HorizontalAlignment="Left" Margin="21,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontWeight="Bold" FontSize="16" Grid.Row="4"/>
+            <RadioButton Grid.Column="1" x:Name="Corect2"  GroupName="CorectAcc" Content="2" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Height="30" Width="84" FontSize="16" FontWeight="Bold" Grid.Row="4"/>
+            <RadioButton Grid.Column="1" x:Name="Corect3" GroupName="CorectAcc" Content="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="85" Grid.ColumnSpan="2" Margin="238,0,0,0" FontSize="16" FontWeight="Bold" Grid.Row="4"/>
+            <RadioButton Grid.Column="2"  x:Name="Corect4"  GroupName="CorectAcc" Content="4" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="4"/>
+            <RadioButton Grid.Column="2" x:Name="Corect5"   GroupName="CorectAcc" Content="5" HorizontalAlignment="Left" Margin="172,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="4"/>
+            <RadioButton Grid.Column="1" x:Name="Picture1"   GroupName="PictureAcc" Content="1" HorizontalAlignment="Left" Margin="21,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontWeight="Bold" FontSize="16" Grid.Row="2"/>
+            <RadioButton Grid.Column="1" x:Name="Picture2"  GroupName="PictureAcc" Content="2" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="2"/>
+            <RadioButton Grid.Column="1" x:Name="Picture3"  GroupName="PictureAcc" Content="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="85" Grid.ColumnSpan="2" Margin="238,0,0,0" FontSize="16" FontWeight="Bold" Grid.Row="2"/>
+            <RadioButton Grid.Column="2" x:Name="Picture4" GroupName="PictureAcc" Content="4" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="2"/>
+            <RadioButton Grid.Column="2" x:Name="Picture5"  GroupName="PictureAcc" Content="5" HorizontalAlignment="Left" Margin="172,0,0,0" VerticalAlignment="Center" Height="30" Width="85" FontSize="16" FontWeight="Bold" Grid.Row="2"/>
+            <Button Grid.Column="1" Content="SUBMIT" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="6" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" Height="72" Width="313" Grid.ColumnSpan="2" BorderThickness="5,5,5,5"  />
+        </Grid>
+        <StatusBar Background="#FFA39999" Margin="0,651,5,-582" Grid.ColumnSpan="2">
+
+            <Button Content="ADD PHOTO" FontWeight="Bold" HorizontalAlignment="Center" BorderThickness="5,5,5,5" FontSize="22" BorderBrush="#FF707070" Width="306" Height="54"/>
+            <Button Content="ADD COMMENT" FontSize="22" BorderThickness="5,5,5,5" FontWeight="Bold" Height="51" Width="339"/>
+            <Button Content="ADD RECOMMODATION" Width="351" BorderThickness="5,5,5,5" FontWeight="Bold" FontSize="22" Height="52" Click="Recommodation" />
+
+
+
+        </StatusBar>
+        <Label Grid.Column="1" Content="1-Strongly disagree 2-Disagree 3-No opinion 4- Agree 5-Strongly agree" HorizontalAlignment="Left" Margin="248,115,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFD44444" Height="58" Width="817"/>
+        <Button Grid.Column="1" Content="GO BACK" HorizontalAlignment="Left" Margin="756,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="194" Height="54" BorderThickness="5,5,5,5"/>
+    </Grid>
+
+</Window>

@@ -47,9 +47,9 @@ namespace FiveStarTours
             {
                 if (user.Password == txtPassword.Password)
                 {
-                   
+
                     FindbyRole(user);
-                   
+
                 }
                 else
                 {
@@ -120,4 +120,3 @@ namespace FiveStarTours
         }
     }
 }
-

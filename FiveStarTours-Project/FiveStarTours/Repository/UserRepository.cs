@@ -82,12 +82,18 @@ namespace FiveStarTours.Repository
         {
             _users = _serializer.FromCSV(FilePath);
             User current = _users.Find(c => c.Id == user.Id);
-            int index = _users.IndexOf(current);
-            _users.Remove(current);
-            _users.Insert(index, user);
-            _serializer.ToCSV(FilePath, _users);
+
+            if (current != null)
+            {
+                int index = _users.IndexOf(current);
+                _users.Remove(current);
+                _users.Insert(index, user);
+                _serializer.ToCSV(FilePath, _users);
+            }
+
             return user;
         }
+
 
     }
 }

@@ -12,6 +12,7 @@ namespace FiveStarTours.Interfaces
         List<OnAdress> GetAll();
         OnAdress Save(OnAdress newVehicleOnAdress);
         int NextId();
-
+        List<OnAdress> GetAllFastDrive();
+        int FastDriveCount();
     }
 }

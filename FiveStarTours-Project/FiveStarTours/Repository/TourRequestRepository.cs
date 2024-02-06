@@ -60,7 +60,19 @@ namespace FiveStarTours.Repository
             return null;
         }
 
-   
-       
+        public void FindIdAndSave(TourRequest request, int id)
+        {
+            List<TourRequest> list = new List<TourRequest>();
+            list = GetAll();
+            var r = list.ElementAt(id-1);
+            if (request != null)
+            {
+                r = request;
+                list[id-1] = request;
+            }
+
+            _serializer.ToCSV(FilePath, list);
+        }
+
     }
 }

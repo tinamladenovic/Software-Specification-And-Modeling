@@ -36,6 +36,7 @@ namespace FiveStarTours.View.Traveler
             DataContext = this;
             accommodationReservationService = new AccommodationReservationService();
             Reservations = new ObservableCollection<AccommodationReservation>(accommodationReservationService.GetAll());
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
         private string _guestName;
         public string GuestName
@@ -91,7 +92,7 @@ namespace FiveStarTours.View.Traveler
             {
                 if (accommodationReservationService.IsAbleToRate(SelectedReservation.Id))
                 {
-                    AccommodationRatings rating = new AccommodationRatings(SelectedReservation);
+                   Rating rating = new Rating(SelectedReservation);
                     rating.Show();
                    
                    
@@ -156,6 +157,12 @@ namespace FiveStarTours.View.Traveler
             RequestView request = new RequestView();
             request.Show();
             
+        }
+
+        private void back(object sender, RoutedEventArgs e)
+        {
+            MainWindowLida mainWindowLida = new MainWindowLida();
+            mainWindowLida.Show();
         }
     }
 }

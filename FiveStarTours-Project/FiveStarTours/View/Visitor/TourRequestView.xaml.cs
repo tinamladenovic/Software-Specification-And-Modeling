@@ -103,7 +103,7 @@ namespace FiveStarTours.View.Visitor
             }
         }
 
-       
+
 
 
         public TourRequestView(User user)
@@ -115,7 +115,7 @@ namespace FiveStarTours.View.Visitor
             _tourRequestRepository = new TourRequestService();
             _languageRepository = new LanguagesService();
 
-            
+
             List<string> States = _locationsRepository.GetAllStates();
             stateComboBox.ItemsSource = States;
             stateComboBox.SelectedValuePath = ".";
@@ -172,8 +172,7 @@ namespace FiveStarTours.View.Visitor
 
         private void AllToursButton_Click(object sender, RoutedEventArgs e)
         {
-            TourRequestsListingView requests = new TourRequestsListingView(LoggedInUser);
-            requests.Show();
+
         }
 
         private void ReservedToursButton_Click(object sender, RoutedEventArgs e)
@@ -208,7 +207,7 @@ namespace FiveStarTours.View.Visitor
 
         private void MakeButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             Location location = new Location();
             if (CheckLocation())
             {
@@ -243,12 +242,12 @@ namespace FiveStarTours.View.Visitor
                     return;
                 }
             }
-            
+
             Language language = new Language(Lang);
             _languageRepository.Save(language);
 
-            TourRequest newTourRequest = new TourRequest(location.Id, location, Description, language.Id , language, MaximumGuests,
-             intervalList, DateTime.Now);
+            TourRequest newTourRequest = new TourRequest(location.Id, location, Description, language.Id, language, MaximumGuests,
+             Interval, DateTime.Now);
             _tourRequestRepository.Save(newTourRequest);
 
             Close();
@@ -275,18 +274,11 @@ namespace FiveStarTours.View.Visitor
             return true;
         }
 
-        List<DateInterval> intervalList = new List<DateInterval>();
-        private List<int> idInterval;
+        DateInterval Interval;
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            DateInterval interval = new DateInterval(DateTime.Parse(Start), DateTime.Parse(End)) ;
-            intervalList.Add(interval);
+            Interval = new DateInterval(DateTime.Parse(Start), DateTime.Parse(End));
         }
-
-        
-
-
-
     }
 }

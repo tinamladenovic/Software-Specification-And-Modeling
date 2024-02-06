@@ -1,0 +1,26 @@
+﻿<Window x:Class="FiveStarTours.View.Driver.SubstituteDriver"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveStarTours.View.Driver"
+        mc:Ignorable="d"
+        Title="Substitute Driver" Height="550" Width="800">
+    <Grid>
+        <Label Content="Substitute Driver" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="36"/>
+        <CheckBox Content="Super-Driver" IsChecked="{Binding IfSuperDriver}" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="16"/>
+        <DataGrid ItemsSource="{Binding Path=Drivings}" 
+                  x:Name="adreseDataGrid"
+                  SelectionMode="Single" 
+                  HeadersVisibility="Column"
+                  FontSize="13" 
+                  Margin="185,198,180,138" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Drivings" IsReadOnly="True" Binding="{Binding Name, Mode=TwoWay}" Width="350"/>
+                <DataGridCheckBoxColumn x:Name="AcceptCheckBox" Header="Accept" Binding="{Binding Accept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="60" IsThreeState="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ConfirmButton" Content="Confirm" HorizontalAlignment="Left" Margin="271,434,0,0" VerticalAlignment="Top" Width="100" Height="30" RenderTransformOrigin="0.042,0.719" Click="ConfirmButton_Click" FontWeight="Bold" BorderBrush="#FFA2A2A2"/>
+        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="429,435,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="CloseButton_Click" FontWeight="Bold"/>
+    </Grid>
+</Window>

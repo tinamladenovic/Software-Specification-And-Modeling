@@ -13,7 +13,7 @@ namespace FiveStarTours.Model
     public class Vehicle : ISerializable
     {
         public int Id { get; set; }
-        public string DriverName { get; set; }
+        public string Name { get; set; }
         public int IdLocation { get; set; }
         public Location Location { get; set; }
         public int MaxPersonNum { get; set; }
@@ -25,10 +25,10 @@ namespace FiveStarTours.Model
 
         public Vehicle() { }
 
-        public Vehicle( string driverName, int idlocation, Location location, int maximumPersonNumber,  List<Language> languageList, List<int> idLanguages, List<string> imageUrlsList, string fastdrivenum)
+        public Vehicle( string name, int idlocation, Location location, int maximumPersonNumber,  List<Language> languageList, List<int> idLanguages, List<string> imageUrlsList, string fastdrivenum)
         {
            
-            DriverName = driverName;
+            Name = name;
             IdLocation = idlocation;
             Location = location;
             MaxPersonNum = maximumPersonNumber;
@@ -44,7 +44,7 @@ namespace FiveStarTours.Model
             string[] csvValues =
             { 
               Id.ToString(),
-              DriverName,
+              Name,
               IdLocation.ToString(),
               string.Join(';', IdLanguages),
               MaxPersonNum.ToString(),
@@ -59,7 +59,7 @@ namespace FiveStarTours.Model
         public void FromCSV(string[] values)
         {
             Id = Convert.ToInt32(values[0]);
-            DriverName = values[1];
+            Name = values[1];
             IdLocation = Convert.ToInt32(values[2]);
             IdLanguages = ConvertToInt(values[3]);
             MaxPersonNum = Convert.ToInt32(values[4]);

@@ -26,13 +26,7 @@ namespace FiveStarTours.Repository
 
         public List<GroupRide> GetAll()
         {
-            Bind();
-            return _groupRideRepository;
-        }
-
-        private void Bind()
-        {
-            _groupRideRepository.ForEach(gr => gr.Language = Injector.Injector.CreateInstance<ILanguagesRepository>().GetById(gr.IdLanguage));
+            return _serializer.FromCSV(FilePath);
         }
 
         public GroupRide Save(GroupRide groupRide)

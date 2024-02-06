@@ -37,11 +37,27 @@ namespace FiveStarTours.Injector
         { typeof(IVehicleRepository), new VehicleRepository() },
         { typeof(IRenovationRepository), new RenovationRepository() },
         { typeof(ITourRatingRepository), new TourRatingRepository() },
+        {typeof(IRecommodationRepository), new RecommodationRepository() },
+        {typeof(ISuperGuestTitleRepository), new SuperGuestTitleRepository() },
         { typeof(ITourRequestRepository), new TourRequestRepository() },
-
 
         // Add more implementations here
     };
+
+        public static void RegisterImplementation<T>(T implementation)
+        {
+            Type type = typeof(T);
+
+            if (!_implementations.ContainsKey(type))
+            {
+                _implementations.Add(type, implementation);
+            }
+            else
+            {
+                _implementations[type] = implementation;
+            }
+        }
+
 
         public static T CreateInstance<T>()
         {

@@ -5,23 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveStarTours.View.Traveler"
         mc:Ignorable="d"
-        Title="Reservation" Height="450" Width="800">
-    <Grid Background="#FFED9C9C">
-        <Label Content="Choose dates for your reservation" HorizontalAlignment="Left" Margin="176,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="381" HorizontalContentAlignment="Center" BorderThickness="2,2,2,2" BorderBrush="Yellow"/>
-        <Grid Background="#FFD8A8A8">
-            <Label Content="ARRIVAL DATE:" HorizontalAlignment="Left" Margin="40,150,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <Label Content="DEPARTURE DATE:" HorizontalAlignment="Left" Margin="40,211,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <Label x:Name="Length" Content="LENGTH OF STAY:" HorizontalAlignment="Left" Margin="148,274,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="40" Width="202"/>
-            <DatePicker x:Name="first" SelectedDate="{Binding Path=StartDate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Margin="0,136,0,0" VerticalAlignment="Top" Height="51" Width="332" />
-            <DatePicker x:Name="last" SelectedDate="{Binding Path=EndDate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Height="53" Width="332" />
-            <TextBox x:Name="Lengthtxt" HorizontalAlignment="Center" Margin="0,274,0,0" TextWrapping="Wrap" Text="{Binding Path=VisitationDays, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="100" Height="40"/>
-            <Button Content="Go back" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" BorderThickness="4,4,4,4" BorderBrush="#FF8B3636" Height="54" Width="214" Click="goback" Background="#FF957070"/>
+        Title="Reservation" Height="768" Width="1024" Background="AliceBlue">
+    <Grid Margin="0,0,0,579" Background="#FFB2B2B2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="1" Content="FiveStarTours" HorizontalAlignment="Left" Margin="-69,45,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="48" Width="177">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="149" Margin="55,0,0,0" VerticalAlignment="Center" Width="193" Source="/View/Traveler/LogoNew.jpg" Stretch="Fill"/>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="55,202,0,-444" RenderTransformOrigin="0.441,0.49" Background="#FFE8DFDF" HorizontalAlignment="Left" Width="943">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition/>
+                <RowDefinition/>
 
-            <Label Content="ACCOMMODATION NAME:" HorizontalAlignment="Left" Margin="35,77,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="216*"></ColumnDefinition>
+                <ColumnDefinition Width="31*"></ColumnDefinition>
+                <ColumnDefinition Width="528*"/>
+                <ColumnDefinition Width="7*"/>
 
-            <TextBox IsEnabled="False" Text="{Binding Path=SelectedAccommodation.AccommodationName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="276,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="290" Height="24"/>
-            <Button x:Name="checkButton" Content="Check availability" Click="checkButton_Click" HorizontalAlignment="Left" Margin="556,309,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" BorderThickness="4,4,4,4" Width="192" Height="88" Background="#FF957070"/>
+
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0"
+                   Content="ACCOMMODATION NAME:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" Width="261"/>
+            <Label Grid.Row="1" Grid.Column="0"
+                       Content="ARRIVAL DATE:" 
+                       Margin="2,10,11,0"
+                       Foreground="#FF1E1C1E" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Bottom" VerticalAlignment="Top"/>
+            <Label Grid.Row="2" Grid.Column="0"
+                       Content="DEPARTURE DATE:" 
+                       Margin="49,10,0,10"
+                       Foreground="#FF131213" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Grid.RowSpan="2"/>
+            <Label Grid.Row="4" Grid.Column="0"
+                       Content="LENGTH OF STAY:" 
+                       Margin="57,14,0,6"
+                       Foreground="#FF131213" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left"/>
+
+
+            <DatePicker x:Name="first" Grid.Row="1"
+                         SelectedDate="{Binding Path=StartDate,UpdateSourceTrigger=PropertyChanged}"
+                        SelectedDateChanged="DatePicker_SelectedDateChanged"
+                         Margin="21,10,3,10" FontSize="20"
+                         Grid.Column="2" FontWeight="Bold" />
+            <DatePicker x:Name="end" Grid.Row="2"
+                      SelectedDate="{Binding Path=EndDate,UpdateSourceTrigger=PropertyChanged}"
+                        SelectedDateChanged="DatePicker_SelectedDateChanged"
+                       Margin="21,10,3,10" FontSize="20" Grid.Column="2"
+                       Grid.RowSpan="2" FontWeight="Bold"/>
+
+
+            <TextBox Grid.Row="0" Grid.Column="2" IsEnabled="False" Text="{Binding Path=SelectedAccommodation.AccommodationName, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Margin="21,10,8,0" FontSize="20" FontWeight="Bold"/>
+            <TextBox Grid.Row="4" Grid.Column="2" x:Name="Lengthtxt" Text="{Binding Path=VisitationDays, UpdateSourceTrigger=PropertyChanged}" Margin="21,10,3,10" FontWeight="Bold" FontSize="20" />
+
         </Grid>
+        <StatusBar Background="#FFA39999" Margin="0,651,5,-582" Grid.ColumnSpan="2">
+
+            <Button FontWeight="Bold" HorizontalAlignment="Left" BorderThickness="5,5,5,5" FontSize="22" BorderBrush="#FF707070" Width="1005" Click="checkButton_Click">
+                <StackPanel>
+                    <Image Source="/Resources/Images/search_hci.png" Height="20" Width="30"/>
+                    <TextBlock Text="CHECK AVAILABILTY"/>
+                </StackPanel>
+            </Button>
+
+
+
+        </StatusBar>
+        <Button Grid.Column="1" Content="GO BACK" HorizontalAlignment="Left" Margin="747,46,0,0" VerticalAlignment="Top" FontSize="20" Width="209" Height="64" FontWeight="Bold" BorderThickness="5,5,5,5" Click="back"/>
 
     </Grid>
 </Window>

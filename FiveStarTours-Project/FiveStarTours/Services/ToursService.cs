@@ -61,5 +61,19 @@ namespace FiveStarTours.Services
             return _toursRepository.GetByName(name);
         }
 
+        public List<DateTime> GetAllDates()
+        {
+            List<DateTime> dates = new List<DateTime>();
+
+            foreach (Tour tour in _toursRepository.GetAll())
+            {
+                foreach (var date in tour.Beginning)
+                {
+                    dates.Add(date);
+                }
+            }
+
+            return dates;
+        }
     }
 }
